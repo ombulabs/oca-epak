@@ -10,6 +10,21 @@ class Oca
     @client = Savon.client(wsdl: WSDL_BASE_URI)
   end
 
+  # Checks if the user has input valid credentials
+  #
+  # @param [String] Username (Email)
+  # @param [String] Password
+  # @return [Boolean] Whether the credentials are valid or not
+  def check_credentials(username, password)
+    begin
+      opts = { "usr" => username, "psw" => password }
+      client.call(:generar_consolidacion_de_ordenes_de_retiro, message: opts)
+      false
+    rescue Savon::SOAPFault => e
+      true
+    end
+  end
+
   # Get rates and delivery estimate for a shipment
   #
   # @param [String] Total Weight e.g: 20
