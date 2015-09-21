@@ -20,7 +20,7 @@ class Oca
   # @param [String] Client's CUIT e.g: 30-99999999-7
   # @param [String] Operation Type
   # @return [Hash, nil] Contains Total Price, Delivery Estimate
-  def get_corporate_shipping_rate(wt, vol, origin, destination, qty, cuit, op)
+  def get_shipping_rates(wt, vol, origin, destination, qty, cuit, op)
     method = :tarifar_envio_corporativo
     opts = { "PesoTotal" => wt, "VolumenTotal" => vol,
              "CodigoPostalOrigen" => origin,
