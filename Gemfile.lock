@@ -7,6 +7,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.3.8)
     akami (1.3.1)
       gyoku (>= 0.4.0)
       nokogiri
@@ -15,6 +16,8 @@ GEM
       columnize (= 0.9.0)
     coderay (1.1.0)
     columnize (0.9.0)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
     diff-lcs (1.2.5)
     gyoku (1.3.1)
       builder (>= 2.1.2)
@@ -46,6 +49,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
+    safe_yaml (1.0.4)
     savon (2.11.1)
       akami (~> 1.2)
       builder (>= 2.1.2)
@@ -55,9 +59,13 @@ GEM
       nori (~> 2.4)
       wasabi (~> 3.4)
     slop (3.6.0)
+    vcr (2.9.3)
     wasabi (3.5.0)
       httpi (~> 2.0)
       nokogiri (>= 1.4.2)
+    webmock (1.21.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
 
 PLATFORMS
   ruby
@@ -66,3 +74,5 @@ DEPENDENCIES
   oca-epak!
   pry-byebug (~> 3.2.0)
   rspec (~> 3.3.0)
+  vcr (~> 2.9.3)
+  webmock (~> 1.21.0)
