@@ -10,38 +10,48 @@ class Oca
     @client = Savon.client(wsdl: WSDL_BASE_URI)
   end
 
-  # Get rate for a corporate shipment
+  # Get rates and delivery estimate for a shipment
   #
-  # @param [String] Total Weight
-  # @param [String] Total Volume
+  # @param [String] Total Weight e.g: 20
+  # @param [String] Total Volume e.g: 0.0015 (0.1mts * 0.15mts * 0.1mts)
   # @param [String] Origin ZIP Code
   # @param [String] Destination ZIP Code
   # @param [String] Quantity of Packages
-  # @param [String] Declared Monetary Value
-  # @return [Savon::Response] Contains Shipping Price
-  def get_corporate_shipping_rate(weight, volume, origin, destination, qty, val)
-  end
-
-  # Given a client's CUIT with a range of dates, a list is returned with
-  # all shipments made for the given period.
-  #
-  # @param [String] "From date" in DD-MM-YYYY format
-  # @param [String] "To date" in DD-MM-YYYY format
-  # @return [Savon::Response] Contains the values for NroProducto and NumeroEnvio
-  def list_shipments(from_date, to_date)
-    opts = { FechaDesde: from_date, FechaHasta: to_date }
-    response = client.call(:list_envios, message: opts)
-    response.body
+  # @param [String] Client's CUIT e.g: 30-99999999-7
+  # @param [String] Operation Type
+  # @return [Hash, nil] Contains Total Price, Delivery Estimate
+  def get_corporate_shipping_rate(wt, vol, origin, destination, qty, cuit, op)
+    method = :tarifar_envio_corporativo
+    opts = { "PesoTotal" => wt, "VolumenTotal" => vol,
+             "CodigoPostalOrigen" => origin,
+             "CodigoPostalDestino" => destination, "CantidadPaquetes" => qty,
+             "Cuit" => cuit, "Operativa" => op }
+    response = client.call(method, message: opts)
+    parse_results(method, response)
   end
 
   # Returns all existing "Centros de Imposición"
   #
-  # @return [Array] Information for all the Centros de Imposición
+  # @return [Array, nil] Information for all the Centros de Imposición
   def centros_de_imposicion
-    response = client.call(:get_centros_imposicion)
-    if body = response.body[:get_centros_imposicion_response]
-      body[:get_centros_imposicion_result][:diffgram][:new_data_set][:table]
-    end
+    method = :get_centros_imposicion
+    response = client.call(method)
+    parse_results(method, response)
+  end
+
+  # Given a client's CUIT with a range of dates, returns a list with
+  # all shipments made within the given period.
+  #
+  # @param [String] Client's CUIT
+  # @param [String] "From date" in DD-MM-YYYY format
+  # @param [String] "To date" in DD-MM-YYYY format
+  # @return [Array, nil] Contains an array of hashes with NroProducto and NumeroEnvio
+  def list_shipments(cuit, from_date, to_date)
+    method = :list_envios
+    opts = { "CUIT" => cuit, "FechaDesde" => from_date,
+             "FechaHasta" => to_date }
+    response = client.call(method, message: opts)
+    parse_results(method, response)
   end
 
   # Returns all provinces in Argentina
@@ -53,4 +63,14 @@ class Oca
       body[:get_provincias_result][:provincias][:provincia]
     end
   end
+
+  private
+
+    def parse_results(method, response)
+      method_response = "#{method}_response".to_sym
+      method_result = "#{method}_result".to_sym
+      if body = response.body[method_response]
+        body[method_result][:diffgram][:new_data_set][:table]
+      end
+    end
 end
