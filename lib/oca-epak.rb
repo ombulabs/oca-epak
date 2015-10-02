@@ -25,6 +25,20 @@ class Oca
     end
   end
 
+  # Checks whether the operation is valid
+  #
+  # @param [String] Client's CUIT
+  # @param [String] Operation Type
+  # @return [Boolean]
+  def check_operativa(cuit, op)
+    begin
+      get_shipping_rates("50", "0.027", "1414", "5403", "1", cuit, op)
+      true
+    rescue NoMethodError => e
+      false
+    end
+  end
+
   # Get rates and delivery estimate for a shipment
   #
   # @param [String] Total Weight e.g: 20
