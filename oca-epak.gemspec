@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'oca-epak'
-  s.version     = '0.0.2'
+  s.version     = '0.0.3'
   s.date        = '2015-09-14'
   s.summary     = "OCA E-Pak"
   s.description = "Ruby wrapper for the OCA E-Pak API"
