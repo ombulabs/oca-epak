@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    oca-epak (0.0.1)
-      savon (~> 2.11.1)
+    oca-epak (0.1.0)
+      savon (~> 2.11)
 
 GEM
   remote: https://rubygems.org/
@@ -72,7 +72,7 @@ PLATFORMS
 
 DEPENDENCIES
   oca-epak!
-  pry-byebug (~> 3.2.0)
-  rspec (~> 3.3.0)
-  vcr (~> 2.9.3)
-  webmock (~> 1.21.0)
+  pry-byebug (~> 3.2)
+  rspec (~> 3.3)
+  vcr (~> 2.9)
+  webmock (~> 1.21)
