@@ -23,6 +23,25 @@ RSpec.describe Oca do
     end
   end
 
+  context "checking an operation type exists" do
+    let(:cuit) { "30-99999999-7" }
+    let(:operation_type) { "77790" }
+    let(:exception) { NoMethodError }
+    let(:oca) { Oca.new }
+
+    it "returns true if the operation type exists" do
+      VCR.use_cassette("get_shipping_rates") do
+        expect(oca.check_operativa(cuit, operation_type)).to be_truthy
+      end
+    end
+
+    it "returns false if the operation type doesn't exist" do
+      allow(oca).to(receive(:get_shipping_rates)).and_raise(exception)
+
+      expect(oca.check_operativa(cuit, operation_type)).to be_falsey
+    end
+  end
+
   context "getting shipping rates" do
     let(:cuit) { "30-99999999-7" }
     let(:weight) { "50" }
