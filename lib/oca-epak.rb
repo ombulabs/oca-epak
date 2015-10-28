@@ -1,20 +1,21 @@
 require 'savon'
+require 'erb'
 
 class Oca
-  attr_reader :client
+  attr_reader :client, :username, :password
 
   WSDL = 'http://webservice.oca.com.ar/oep_tracking/Oep_Track.asmx?WSDL'.freeze
 
-  def initialize
+  def initialize(username, password)
     @client = Savon.client(wsdl: WSDL)
+    @username = username
+    @password = password
   end
 
   # Checks if the user has input valid credentials
   #
-  # @param [String] Username (Email)
-  # @param [String] Password
-  # @return [Boolean] Whether the credentials are valid or not
-  def check_credentials(username, password)
+  # @return [Boolean] Whether the credentials entered are valid or not
+  def check_credentials
     begin
       opts = { "usr" => username, "psw" => password }
       client.call(:generar_consolidacion_de_ordenes_de_retiro, message: opts)
@@ -38,6 +39,21 @@ class Oca
     rescue NoMethodError => e
       false
     end
+  end
+
+  # Creates an Orden de Retiro, which lets OCA know you want to make a delivery
+  #
+  # @param
+  # @return
+  def create_orden_de_retiro(numero_cuenta, retiro, envios, confirmar_retiro = false)
+    method = :ingreso_or
+    rendered_xml = or_template.result(binding)
+    rendered_xml.gsub!('\t', '').gsub!('\n', '')
+    # opts = { "usr" => username, "psw" => password, "XML_Retiro" => rendered_xml,
+    #   "ConfirmarRetiro" => confirmar_retiro, "DiasRetiro" => "",
+    #   "FranjaHoraria" => "" }
+    # response = client.call(method, message: opts)
+    # parse_results(method, response)
   end
 
   # Get rates and delivery estimate for a shipment
@@ -104,5 +120,10 @@ class Oca
       if body = response.body[method_response]
         body[method_result][:diffgram][:new_data_set][:table]
       end
+    end
+
+    def or_template
+      path_to_xml = File.expand_path("../oca-epak/retiro.xml.erb", __FILE__)
+      ERB.new(File.read(path_to_xml))
     end
 end
