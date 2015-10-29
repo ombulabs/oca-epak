@@ -45,7 +45,7 @@ class Oca
   #
   # @param
   # @return
-  def create_pickup_order(account_number, pickup, shipment, confirm_pickup = false)
+  def create_pickup_order(account_number, pickup, shipments, confirm_pickup = false)
     method = :ingreso_or
     rendered_xml = or_template.result(binding)
     rendered_xml.gsub!('\t', '').gsub!('\n', '')

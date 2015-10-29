@@ -1,13 +1,13 @@
 <ROWS>
-	<cabecera ver="1.0" nrocuenta="<%= numero_cuenta %>" />
-	<retiro calle="<%= retiro['calle'] %>" nro="<%= retiro['numero'] %>" piso="<%= retiro['piso'] %>" depto="<%= retiro['departamento'] %>" cp="<%= retiro['cp'] %>" localidad="<%= retiro['localidad'] %>" provincia="<%= retiro['provincia'] %>" contacto="<%= retiro['solicitante'] %>" email="<%= retiro['email'] %>" solicitante="<%= retiro['solicitante'] %>" observaciones="<%= retiro['observaciones'] %>" centrocosto="<% if retiro['centro_de_costo'] %><%= retiro['centro_de_costo'] %><% else %>0<% end %>" />
+	<cabecera ver="1.0" nrocuenta="<%= account_number %>" />
+	<retiro calle="<%= pickup['calle'] %>" nro="<%= pickup['numero'] %>" piso="<%= pickup['piso'] %>" depto="<%= pickup['departamento'] %>" cp="<%= pickup['cp'] %>" localidad="<%= pickup['localidad'] %>" provincia="<%= pickup['provincia'] %>" contacto="<%= pickup['solicitante'] %>" email="<%= pickup['email'] %>" solicitante="<%= pickup['solicitante'] %>" observaciones="<%= pickup['observaciones'] %>" centrocosto="<% if pickup['centro_de_costo'] %><%= pickup['centro_de_costo'] %><% else %>0<% end %>" />
 	<envios>
-    <% envios.each do |envio| %>
-		<envio idoperativa="<%= envio['id_operativa'] %>" nroremito="<%= envio['numero_remito'] %>">
-			<destinatario apellido="<%= envio['destinatario']['apellido'] %>" nombre="<%= envio['destinatario']['nombre'] %>" calle="<%= envio['destinatario']['calle'] %>" nro="<%= envio['destinatario']['numero'] %>" piso="<%= envio['destinatario']['piso'] %>" depto="<%= envio['destinatario']['departamento'] %>" cp="<%= envio['destinatario']['cp'] %>" localidad="<%= envio['destinatario']['localidad'] %>" provincia="<%= envio['destinatario']['provincia'] %>" telefono="<%= envio['destinatario']['telefono'] %>" email="<%= envio['destinatario']['email'] %>" idci="<% if envio['destinatario']['centro_de_costo'] %><%= envio['destinatario']['centro_de_costo'] %><% else %>0<% end %>" celular="<%= envio['destinatario']['celular'] %>"/>
+    <% shipments.each do |shipment| %>
+		<envio idoperativa="<%= shipment['id_operativa'] %>" nroremito="<%= shipment['numero_remito'] %>">
+			<destinatario apellido="<%= shipment['destinatario']['apellido'] %>" nombre="<%= shipment['destinatario']['nombre'] %>" calle="<%= shipment['destinatario']['calle'] %>" nro="<%= shipment['destinatario']['numero'] %>" piso="<%= shipment['destinatario']['piso'] %>" depto="<%= shipment['destinatario']['departamento'] %>" cp="<%= shipment['destinatario']['cp'] %>" localidad="<%= shipment['destinatario']['localidad'] %>" provincia="<%= shipment['destinatario']['provincia'] %>" telefono="<%= shipment['destinatario']['telefono'] %>" email="<%= shipment['destinatario']['email'] %>" idci="<% if shipment['destinatario']['centro_de_costo'] %><%= shipment['destinatario']['centro_de_costo'] %><% else %>0<% end %>" celular="<%= shipment['destinatario']['celular'] %>"/>
 			<paquetes>
-        <% envio['paquetes'].each do |paquete| %>
-				<paquete alto="<%= paquete['alto'] %>" ancho="<%= paquete['ancho'] %>" largo="<%= paquete['largo'] %>" peso="<%= paquete['peso'] %>" valor="<%= paquete['valor_declarado'] %>" cant="<%= paquete['cantidad'] %>"/>
+        <% shipment['paquetes'].each do |package| %>
+				<paquete alto="<%= package['alto'] %>" ancho="<%= package['ancho'] %>" largo="<%= package['largo'] %>" peso="<%= package['peso'] %>" valor="<%= package['valor_declarado'] %>" cant="<%= package['cantidad'] %>"/>
 				<% end %>
 			</paquetes>
 		</envio>
