@@ -31,14 +31,14 @@ RSpec.describe Oca do
 
     it "returns true if the operation type exists" do
       VCR.use_cassette("get_shipping_rates") do
-        expect(oca.check_operativa(cuit, operation_type)).to be_truthy
+        expect(oca.check_operation(cuit, operation_type)).to be_truthy
       end
     end
 
     it "returns false if the operation type doesn't exist" do
       allow(oca).to(receive(:get_shipping_rates)).and_raise(exception)
 
-      expect(oca.check_operativa(cuit, operation_type)).to be_falsey
+      expect(oca.check_operation(cuit, operation_type)).to be_falsey
     end
   end
 
@@ -53,11 +53,12 @@ RSpec.describe Oca do
     let(:oca) { Oca.new }
 
     it "returns the shipping price and estimated date" do
+      opts = { wt: weight, vol: volume, origin: origin_zip_code,
+        destination: destination_zip_code, qty: package_quantity, cuit: cuit,
+        op: operation_type }
+
       VCR.use_cassette("get_shipping_rates") do
-        response = oca.get_shipping_rates(weight, volume, origin_zip_code,
-                                          destination_zip_code,
-                                          package_quantity, cuit,
-                                          operation_type)
+        response = oca.get_shipping_rates(opts)
         expect(response).to be
         expect(response[:precio]).to eql("328.9000")
         expect(response[:ambito]).to eql("Regional")
