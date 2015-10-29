@@ -3,11 +3,10 @@ require 'savon'
 class Oca
   attr_reader :client
 
-  WSDL_BASE_URI = 'http://webservice.oca.com.ar/oep_tracking/Oep_Track.asmx?'\
-                  'WSDL'.freeze
+  WSDL = 'http://webservice.oca.com.ar/oep_tracking/Oep_Track.asmx?WSDL'.freeze
 
   def initialize
-    @client = Savon.client(wsdl: WSDL_BASE_URI)
+    @client = Savon.client(wsdl: WSDL)
   end
 
   # Checks if the user has input valid credentials
@@ -30,9 +29,11 @@ class Oca
   # @param [String] Client's CUIT
   # @param [String] Operation Type
   # @return [Boolean]
-  def check_operativa(cuit, op)
+  def check_operation(cuit, op)
     begin
-      get_shipping_rates("50", "0.027", "1414", "5403", "1", cuit, op)
+      opts = { wt: "50", vol: "0.027", origin: "1414", destination: "5403",
+        qty: "1", cuit: cuit, op: op }
+      get_shipping_rates(opts)
       true
     rescue NoMethodError => e
       false
@@ -41,28 +42,30 @@ class Oca
 
   # Get rates and delivery estimate for a shipment
   #
-  # @param [String] Total Weight e.g: 20
-  # @param [String] Total Volume e.g: 0.0015 (0.1mts * 0.15mts * 0.1mts)
-  # @param [String] Origin ZIP Code
-  # @param [String] Destination ZIP Code
-  # @param [String] Quantity of Packages
-  # @param [String] Client's CUIT e.g: 30-99999999-7
-  # @param [String] Operation Type
+  # @param [Hash] opts
+  # @option [String] :wt Total Weight e.g: 20
+  # @option [String] :vol Total Volume e.g: 0.0015 (0.1mts * 0.15mts * 0.1mts)
+  # @option [String] :origin Origin ZIP Code
+  # @option [String] :destination Destination ZIP Code
+  # @option [String] :qty Quantity of Packages
+  # @option [String] :cuit Client's CUIT e.g: 30-99999999-7
+  # @option [String] :op Operation Type
   # @return [Hash, nil] Contains Total Price, Delivery Estimate
-  def get_shipping_rates(wt, vol, origin, destination, qty, cuit, op)
+  def get_shipping_rates(opts = {})
     method = :tarifar_envio_corporativo
-    opts = { "PesoTotal" => wt, "VolumenTotal" => vol,
-             "CodigoPostalOrigen" => origin,
-             "CodigoPostalDestino" => destination, "CantidadPaquetes" => qty,
-             "Cuit" => cuit, "Operativa" => op }
-    response = client.call(method, message: opts)
+    message = { "PesoTotal" => opts[:wt], "VolumenTotal" => opts[:vol],
+                "CodigoPostalOrigen" => opts[:origin],
+                "CodigoPostalDestino" => opts[:destination],
+                "CantidadPaquetes" => opts[:qty], "Cuit" => opts[:cuit],
+                "Operativa" => opts[:op] }
+    response = client.call(method, message: message)
     parse_results(method, response)
   end
 
-  # Returns all existing "Centros de Imposición"
+  # Returns all existing Taxation Centers
   #
-  # @return [Array, nil] Information for all the Centros de Imposición
-  def centros_de_imposicion
+  # @return [Array, nil] Information for all the Oca Taxation Centers
+  def taxation_centers
     method = :get_centros_imposicion
     response = client.call(method)
     parse_results(method, response)
