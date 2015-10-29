@@ -41,16 +41,16 @@ class Oca
     end
   end
 
-  # Creates an Orden de Retiro, which lets OCA know you want to make a delivery
+  # Creates a Pickup Order, which lets OCA know you want to make a delivery
   #
   # @param
   # @return
-  def create_orden_de_retiro(numero_cuenta, retiro, envios, confirmar_retiro = false)
+  def create_pickup_order(account_number, pickup, shipment, confirm_pickup = false)
     method = :ingreso_or
     rendered_xml = or_template.result(binding)
     rendered_xml.gsub!('\t', '').gsub!('\n', '')
     # opts = { "usr" => username, "psw" => password, "XML_Retiro" => rendered_xml,
-    #   "ConfirmarRetiro" => confirmar_retiro, "DiasRetiro" => "",
+    #   "ConfirmarRetiro" => confirm_pickup, "DiasRetiro" => "",
     #   "FranjaHoraria" => "" }
     # response = client.call(method, message: opts)
     # parse_results(method, response)
