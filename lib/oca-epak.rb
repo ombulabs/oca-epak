@@ -43,17 +43,20 @@ class Oca
 
   # Creates a Pickup Order, which lets OCA know you want to make a delivery
   #
-  # @param
-  # @return
+  # @param [String] Account Number (SAP)
+  # @param [Hash] Pickup Hash
+  # @param [Array<Hash>] Shipments Hash
+  # @param [Boolean] Confirm Pickup? Defaults to false
+  # @return [Hash, nil]
   def create_pickup_order(account_number, pickup, shipments, confirm_pickup = false)
     method = :ingreso_or
     rendered_xml = or_template.result(binding)
-    rendered_xml.gsub!('\t', '').gsub!('\n', '')
-    # opts = { "usr" => username, "psw" => password, "XML_Retiro" => rendered_xml,
-    #   "ConfirmarRetiro" => confirm_pickup, "DiasRetiro" => "",
-    #   "FranjaHoraria" => "" }
-    # response = client.call(method, message: opts)
-    # parse_results(method, response)
+    rendered_xml = rendered_xml.gsub("\t", "").gsub("\n", "")
+    message = { "usr" => username, "psw" => password,
+      "XML_Retiro" => rendered_xml, "ConfirmarRetiro" => confirm_pickup.to_s,
+      "DiasRetiro" => "", "FranjaHoraria" => "" }
+    response = client.call(method, message: message)
+    parse_results(method, response)
   end
 
   # Get rates and delivery estimate for a shipment
