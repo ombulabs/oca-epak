@@ -1,8 +1,10 @@
 require 'savon'
 require 'erb'
+require 'ostruct'
 
 class Oca
-  attr_reader :client, :username, :password
+  attr_reader :client
+  attr_accessor :username, :password
 
   WSDL = 'http://webservice.oca.com.ar/oep_tracking/Oep_Track.asmx?WSDL'.freeze
 
@@ -16,13 +18,10 @@ class Oca
   #
   # @return [Boolean] Whether the credentials entered are valid or not
   def check_credentials
-    begin
-      opts = { "usr" => username, "psw" => password }
-      client.call(:generar_consolidacion_de_ordenes_de_retiro, message: opts)
-      false
-    rescue Savon::SOAPFault => e
-      true
-    end
+    method = :generate_qr_by_orden_de_retiro
+    opts = { "usr" => username, "psw" => password, "idOrdenDeRetiro" => "0123" }
+    response = client.call(method, message: opts)
+    !parse_result(response, method).to_s.include?("Invalido")
   end
 
   # Checks whether the operation is valid
@@ -33,7 +32,7 @@ class Oca
   def check_operation(cuit, op)
     begin
       opts = { wt: "50", vol: "0.027", origin: "1414", destination: "5403",
-        qty: "1", cuit: cuit, op: op }
+               qty: "1", cuit: cuit, op: op }
       get_shipping_rates(opts)
       true
     rescue NoMethodError => e
@@ -43,20 +42,25 @@ class Oca
 
   # Creates a Pickup Order, which lets OCA know you want to make a delivery
   #
-  # @param [String] Account Number (SAP)
-  # @param [Hash] Pickup Hash
-  # @param [Array<Hash>] Shipments Hash
-  # @param [Boolean] Confirm Pickup? Defaults to false
+  # @param [Hash] opts
+  # @option [String] :account_number Account Number (SAP)
+  # @option [Hash] :pickup Pickup Hash
+  # @option [Array<Hash>] :shipments Shipments Hash
+  # @option [Boolean] :confirm_pickup Confirm Pickup? Defaults to false
   # @return [Hash, nil]
-  def create_pickup_order(account_number, pickup, shipments, confirm_pickup = false)
-    method = :ingreso_or
-    rendered_xml = or_template.result(binding)
+  def create_pickup_order(opts = {})
+    opts[:confirm_pickup] = false unless opts.has_key?(:confirm_pickup)
+    opts = OpenStruct.new(opts).instance_eval { binding }
+
+    rendered_xml = or_template.result(opts)
+
     rendered_xml = rendered_xml.gsub("\t", "").gsub("\n", "")
     message = { "usr" => username, "psw" => password,
-      "XML_Retiro" => rendered_xml, "ConfirmarRetiro" => confirm_pickup.to_s,
-      "DiasRetiro" => "", "FranjaHoraria" => "" }
-    response = client.call(method, message: message)
-    parse_results(method, response)
+                "XML_Retiro" => rendered_xml,
+                "ConfirmarRetiro" => opts[:confirm_pickup].to_s,
+                "DiasRetiro" => "", "FranjaHoraria" => "" }
+    response = client.call(:ingreso_or, message: message)
+    parse_results_table(response, :ingreso_or)
   end
 
   # Get rates and delivery estimate for a shipment
@@ -78,7 +82,7 @@ class Oca
                 "CantidadPaquetes" => opts[:qty], "Cuit" => opts[:cuit],
                 "Operativa" => opts[:op] }
     response = client.call(method, message: message)
-    parse_results(method, response)
+    parse_results_table(response, method)
   end
 
   # Returns all existing Taxation Centers
@@ -87,7 +91,7 @@ class Oca
   def taxation_centers
     method = :get_centros_imposicion
     response = client.call(method)
-    parse_results(method, response)
+    parse_results_table(response, method)
   end
 
   # Given a client's CUIT with a range of dates, returns a list with
@@ -102,7 +106,7 @@ class Oca
     opts = { "CUIT" => cuit, "FechaDesde" => from_date,
              "FechaHasta" => to_date }
     response = client.call(method, message: opts)
-    parse_results(method, response)
+    parse_results_table(response, method)
   end
 
   # Returns all provinces in Argentina
@@ -117,11 +121,17 @@ class Oca
 
   private
 
-    def parse_results(method, response)
+    def parse_result(response, method)
       method_response = "#{method}_response".to_sym
       method_result = "#{method}_result".to_sym
       if body = response.body[method_response]
-        body[method_result][:diffgram][:new_data_set][:table]
+        body[method_result]
+      end
+    end
+
+    def parse_results_table(response, method)
+      if result = parse_result(response, method)
+        result[:diffgram][:new_data_set][:table]
       end
     end
 
