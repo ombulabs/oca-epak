@@ -1,26 +1,22 @@
 RSpec.describe Oca do
   let(:username) { "hey@you.com" }
   let(:password) { "123456" }
+  let(:invalid_password) { "654321" }
   subject { Oca.new(username, password) }
 
   context "authenticating a user" do
-    let(:credentials) { { "usr" => username, "psw" => password } }
-    let(:exception) { Savon::SOAPFault.new("", "") }
-
     it "returns true if the user has valid credentials" do
-      allow(subject.client).to(
-        receive(:call).with(:generar_consolidacion_de_ordenes_de_retiro,
-          message: credentials)).and_raise(exception)
-
-      expect(subject.check_credentials).to be_truthy
+      VCR.use_cassette("check_credentials_are_valid") do
+        expect(subject.check_credentials).to be_truthy
+      end
     end
 
     it "returns false if the user has invalid credentials" do
-      allow(subject.client).to(
-        receive(:call).with(:generar_consolidacion_de_ordenes_de_retiro,
-          message: credentials)).and_return({})
+      subject.password = invalid_password
 
-      expect(subject.check_credentials).to be_falsey
+      VCR.use_cassette("check_credentials_are_invalid") do
+        expect(subject.check_credentials).to be_falsey
+      end
     end
   end
 
