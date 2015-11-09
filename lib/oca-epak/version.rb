@@ -1,3 +1,5 @@
-class Oca
-  VERSION = '0.2.1'
+module Oca
+  class Epak
+    VERSION = '1.0.0'
+  end
 end
