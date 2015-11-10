@@ -63,8 +63,8 @@ module Oca
       message = { "usr" => username, "psw" => password,
                   "xml_Datos" => rendered_xml,
                   "ConfirmarRetiro" => confirm_pickup.to_s,
-                  "DiasHastaRetiro" => opts[:days_to_pickup],
-                  "idFranjaHoraria" => opts[:pickup_range] }
+                  "DiasHastaRetiro" => days_to_pickup,
+                  "idFranjaHoraria" => pickup_range }
       response = client.call(:ingreso_or, message: message)
       parse_results_table(response, :ingreso_or)
     end

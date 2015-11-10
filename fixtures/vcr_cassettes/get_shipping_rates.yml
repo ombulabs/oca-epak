@@ -2224,7 +2224,7 @@ http_interactions:
         ci9lcGFrX3RyYWNraW5nL09lcF9UcmFja0VQYWsuYXNteCIgLz4NCiAgICA8
         L3dzZGw6cG9ydD4NCiAgPC93c2RsOnNlcnZpY2U+DQo8L3dzZGw6ZGVmaW5p
         dGlvbnM+
-    http_version: 
+    http_version:
   recorded_at: Mon, 09 Nov 2015 14:17:37 GMT
 - request:
     method: post
@@ -2233,7 +2233,7 @@ http_interactions:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="#Oca_e_Pak"
-        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ins0="#Oca_e_Pak/AbstractTypes"><env:Body><tns:Tarifar_Envio_Corporativo><tns:PesoTotal>50</tns:PesoTotal><tns:VolumenTotal>0.027</tns:VolumenTotal><tns:CodigoPostalOrigen>1414</tns:CodigoPostalOrigen><tns:CodigoPostalDestino>5403</tns:CodigoPostalDestino><tns:ValorDeclarado>123</tns:ValorDeclarado><tns:CantidadPaquetes>1</tns:CantidadPaquetes><tns:Cuit>30-71410572-4</tns:Cuit><tns:Operativa>259563</tns:Operativa></tns:Tarifar_Envio_Corporativo></env:Body></env:Envelope>
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ins0="#Oca_e_Pak/AbstractTypes"><env:Body><tns:Tarifar_Envio_Corporativo><tns:PesoTotal>50</tns:PesoTotal><tns:VolumenTotal>0.027</tns:VolumenTotal><tns:CodigoPostalOrigen>1414</tns:CodigoPostalOrigen><tns:CodigoPostalDestino>5403</tns:CodigoPostalDestino><tns:ValorDeclarado>123</tns:ValorDeclarado><tns:CantidadPaquetes>1</tns:CantidadPaquetes><tns:Cuit>30-99999999-4</tns:Cuit><tns:Operativa>259563</tns:Operativa></tns:Tarifar_Envio_Corporativo></env:Body></env:Envelope>
     headers:
       Soapaction:
       - '"#Oca_e_Pak/Tarifar_Envio_Corporativo"'
@@ -2284,6 +2284,6 @@ http_interactions:
         xmlns=""><Table diffgr:id="Table1" msdata:rowOrder="0"><Tarifador>1</Tarifador><Precio>396.6900</Precio><idTiposervicio>3</idTiposervicio><Ambito>Nacional
         1</Ambito><PlazoEntrega>9</PlazoEntrega><Adicional>0.0000</Adicional><Total>396.6900</Total><XML>&lt;row
         Tarifador="1" Precio="396.6900"/&gt;</XML></Table></NewDataSet></diffgr:diffgram></Tarifar_Envio_CorporativoResult></Tarifar_Envio_CorporativoResponse></soap:Body></soap:Envelope>
-    http_version: 
+    http_version:
   recorded_at: Mon, 09 Nov 2015 14:17:38 GMT
 recorded_with: VCR 2.9.3
