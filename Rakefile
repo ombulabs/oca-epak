@@ -14,7 +14,7 @@ end
 
 task release: :build do
   sh "git push origin master"
-  sh "gem push oca-epak-#{Oca::VERSION}.gem"
+  sh "gem push oca-epak-#{Oca::Epak::VERSION}.gem"
 end
 
 task :console do
