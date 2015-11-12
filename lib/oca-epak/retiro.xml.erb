@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<ROWS>
+	<cabecera ver="1.0" nrocuenta="<%= account_number %>" />
+	<retiro calle="<%= pickup['calle'] %>" nro="<%= pickup['numero'] %>" piso="<%= pickup['piso'] %>" depto="<%= pickup['departamento'] %>" cp="<%= pickup['cp'] %>" localidad="<%= pickup['localidad'] %>" provincia="<%= pickup['provincia'] %>" contacto="<%= pickup['solicitante'] %>" email="<%= pickup['email'] %>" solicitante="<%= pickup['solicitante'] %>" observaciones="<%= pickup['observaciones'] %>" centrocosto="<% if pickup['centro_de_costo'] %><%= pickup['centro_de_costo'] %><% else %>0<% end %>" />
+	<envios>
+    <%- shipments.each do |shipment| -%>
+		<envio idoperativa="<%= shipment['id_operativa'] %>" nroremito="<%= shipment['numero_remito'] %>">
+			<destinatario apellido="<%= shipment['destinatario']['apellido'] %>" nombre="<%= shipment['destinatario']['nombre'] %>" calle="<%= shipment['destinatario']['calle'] %>" nro="<%= shipment['destinatario']['numero'] %>" piso="<%= shipment['destinatario']['piso'] %>" depto="<%= shipment['destinatario']['departamento'] %>" cp="<%= shipment['destinatario']['cp'] %>" localidad="<%= shipment['destinatario']['localidad'] %>" provincia="<%= shipment['destinatario']['provincia'] %>" telefono="<%= shipment['destinatario']['telefono'] %>" email="<%= shipment['destinatario']['email'] %>" idci="<% if shipment['destinatario']['centro_de_costo'] %><%= shipment['destinatario']['centro_de_costo'] %><% else %>0<% end %>" celular="<%= shipment['destinatario']['celular'] %>"/>
+			<paquetes>
+        <%- shipment['paquetes'].each do |package|-%>
+				<paquete alto="<%= package['alto'] %>" ancho="<%= package['ancho'] %>" largo="<%= package['largo'] %>" peso="<%= package['peso'] %>" valor="<%= package['valor_declarado'] %>" cant="<%= package['cantidad'] %>"/>
+				<%- end -%>
+			</paquetes>
+		</envio>
+		<%- end -%>
+	</envios>
+</ROWS>

@@ -16,3 +16,7 @@ task release: :build do
   sh "git push origin master"
   sh "gem push oca-epak-#{Oca::VERSION}.gem"
 end
+
+task :console do
+  sh "irb -rubygems -I lib -r oca-epak.rb"
+end

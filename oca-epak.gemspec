@@ -2,13 +2,13 @@ require File.expand_path("../lib/oca-epak/version", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = 'oca-epak'
-  s.version     = Oca::VERSION
-  s.date        = '2015-10-29'
+  s.version     = Oca::Epak::VERSION
+  s.date        = '2015-11-09'
   s.summary     = "OCA E-Pak"
   s.description = "Ruby wrapper for the OCA E-Pak API"
   s.authors     = ["Mauro Otonelli", "Ernesto Tagwerker"]
   s.email       = ["mauro@ombulabs.com", "ernesto@ombulabs.com"]
-  s.files       = ["lib/oca-epak.rb"]
+  s.files       = Dir["lib/**/**.rb"]
   s.homepage    = 'https://github.com/ombulabs/oca-epak'
 
   s.add_dependency("savon", "~> 2.11")
