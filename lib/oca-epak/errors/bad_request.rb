@@ -1,4 +1,6 @@
 module Oca
-  class Epak::BadRequest < Epak::Error
+  module Epak
+    class BadRequest < GenericError
+    end
   end
 end
