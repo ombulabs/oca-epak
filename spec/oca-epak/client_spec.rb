@@ -1,10 +1,10 @@
-RSpec.describe Oca::Epak do
+RSpec.describe Oca::Epak::Client do
   let(:cuit) { "30-99999999-7" }
   let(:username) { "hey@you.com" }
   let(:password) { "123456" }
   let(:invalid_password) { "654321" }
 
-  subject { Oca::Epak.new(username, password) }
+  subject { Oca::Epak::Client.new(username, password) }
 
   describe "#check_credentials" do
     it "returns true if the user has valid credentials" do
