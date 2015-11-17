@@ -1,0 +1,36 @@
+RSpec.describe Oca::Oep::Client do
+  let(:username) { "hey@you.com" }
+  let(:password) { "123456" }
+
+  subject { Oca::Oep::Client.new(username, password) }
+
+  describe "#get_html_de_etiquetas_por_orden_or_numero_envio" do
+    let(:real_order) { 21132466 }
+    let(:fake_order) { 123_000_000 }
+    it "generates the html of a delivery" do
+      VCR.use_cassette("existing_delivery_html") do
+        result = subject.get_html_de_etiquetas_por_orden_or_numero_envio(
+          id_orden_retiro: real_order
+        )
+
+        expect(result).to be
+        expect(result).to include "Av Siempreviva 1234"
+        expect(result).to include "imagenBarCode"
+        expect(result).to include "NRO. ORDEN DE RETIRO"
+      end
+    end
+
+    it "doesn't generate the html of a delivery for a non-existing order" do
+      VCR.use_cassette("non_existing_delivery_html") do
+        result = subject.get_html_de_etiquetas_por_orden_or_numero_envio(
+          id_orden_retiro: fake_order
+        )
+
+        expect(result).to be
+        expect(result).not_to include "Av Siempreviva 1234"
+        expect(result).not_to include "imagenBarCode"
+        expect(result).not_to include "NRO. ORDEN DE RETIRO"
+      end
+    end
+  end
+end
