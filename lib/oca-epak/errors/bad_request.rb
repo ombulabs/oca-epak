@@ -1,5 +1,5 @@
 module Oca
-  module Epak
+  module Errors
     class BadRequest < GenericError
     end
   end
