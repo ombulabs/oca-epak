@@ -3,7 +3,7 @@ require File.expand_path("../lib/oca-epak/version", __FILE__)
 Gem::Specification.new do |s|
   s.name        = 'oca-epak'
   s.version     = Oca::Epak::VERSION
-  s.date        = '2015-11-13'
+  s.date        = '2015-11-19'
   s.summary     = "OCA E-Pak"
   s.description = "Ruby wrapper for the OCA E-Pak API"
   s.authors     = ["Mauro Otonelli", "Ernesto Tagwerker"]
