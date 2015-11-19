@@ -103,7 +103,7 @@ RSpec.describe Oca::Epak::Client do
 
     it "creates a pickup order in Oca's server" do
       VCR.use_cassette("create_pickup_order") do
-        repsonse = subject.create_pickup_order(pickup_data: pickup_data)
+        response = subject.create_pickup_order(pickup_data: pickup_data)
         expect(response).to be
       end
     end
