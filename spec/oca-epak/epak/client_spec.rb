@@ -63,7 +63,7 @@ RSpec.describe Oca::Epak::Client do
         VCR.use_cassette("get_operation_codes_bad_request") do
           expect do
             subject.get_operation_codes
-          end.to raise_exception(Oca::Epak::BadRequest)
+          end.to raise_exception(Oca::Errors::BadRequest)
         end
       end
     end
@@ -88,6 +88,23 @@ RSpec.describe Oca::Epak::Client do
         expect(response[:precio]).to eql("396.6900")
         expect(response[:ambito]).to eql("Nacional 1")
         expect(response[:plazo_entrega]).to eql("9")
+      end
+    end
+  end
+
+  describe "#create_pickup_order" do
+    let(:pickup_data_path) { "../../../../fixtures/pickup_data_sample.xml" }
+    let(:pickup_xml) do
+      File.open(File.expand_path(pickup_data_path, __FILE__)).read
+    end
+    let(:pickup_data) { spy(Oca::Epak::PickupData.new) }
+
+    before { allow(pickup_data).to receive(:to_xml).and_return(pickup_xml) }
+
+    it "creates a pickup order in Oca's server" do
+      VCR.use_cassette("create_pickup_order") do
+        response = subject.create_pickup_order(pickup_data: pickup_data)
+        expect(response).to be
       end
     end
   end

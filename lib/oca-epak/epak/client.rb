@@ -1,15 +1,10 @@
 module Oca
   module Epak
-    class Client
-      attr_reader :client
-      attr_accessor :username, :password
-
-      WSDL = 'http://webservice.oca.com.ar/epak_tracking/Oep_TrackEPak.asmx?wsdl'.freeze
-
+    class Client < BaseClient
       def initialize(username, password)
-        @client = Savon.client(wsdl: WSDL)
-        @username = username
-        @password = password
+        super
+        wsdl_url = "#{BASE_WSDL_URL}/epak_tracking/Oep_TrackEPak.asmx?wsdl"
+        @client = Savon.client(wsdl: wsdl_url)
       end
 
       # Checks if the user has input valid credentials
@@ -33,7 +28,7 @@ module Oca
                    qty: "1", total: "123", cuit: cuit, op: op }
           get_shipping_rates(opts)
           true
-        rescue Oca::Epak::GenericError => e
+        rescue Oca::Errors::GenericError => e
           false
         end
       end
@@ -45,7 +40,7 @@ module Oca
       # @param [Hash] opts
       # @option [Oca::Epak::PickupData] :pickup_data Pickup Data object
       # @option [Boolean] :confirm_pickup Confirm Pickup? Defaults to false
-      # @option [Integer] :days_to_pickup Days OCA should wait before pickup, default: 1 (?) #TODO Confirm
+      # @option [Integer] :days_to_pickup Days OCA should wait before pickup, default: 1
       # @option [Integer] :pickup_range Range to be used when picking it up, default: 1
       # @return [Hash, nil]
       def create_pickup_order(opts = {})
@@ -60,7 +55,7 @@ module Oca
                     "DiasHastaRetiro" => days_to_pickup,
                     "idFranjaHoraria" => pickup_range }
         response = client.call(:ingreso_or, message: message)
-        parse_results_table(response, :ingreso_or)
+        parse_result(response, :ingreso_or)
       end
 
       # Get rates and delivery estimate for a shipment
@@ -130,26 +125,6 @@ module Oca
           body[:get_provincias_result][:provincias][:provincia]
         end
       end
-
-      private
-
-        def parse_result(response, method)
-          method_response = "#{method}_response".to_sym
-          method_result = "#{method}_result".to_sym
-          if body = response.body[method_response]
-            body[method_result]
-          end
-        end
-
-        def parse_results_table(response, method)
-          if result = parse_result(response, method)
-            if result[:diffgram][:new_data_set]
-              result[:diffgram][:new_data_set][:table]
-            else
-              raise Oca::Epak::BadRequest.new("Oca WS responded with:\n#{response.body}")
-            end
-          end
-        end
     end
   end
 end
