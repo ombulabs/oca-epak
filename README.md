@@ -46,11 +46,11 @@ After you have your operation code active for a given delivery type, you can
 begin calculating shipping rates and delivery estimates:
 
 ```ruby
-opts = { wt: "50", vol: "0.027", origin: "1646", destination: "2000", qty: "1", 
+opts = { wt: "50", vol: "0.027", origin: "1646", destination: "2000", qty: "1",
   cuit: "30-99999999-7", op: "77790" }
 
 oca.get_shipping_rates(opts)
-=> {:tarifador=>"15",
+=> [{:tarifador=>"15",
     :precio=>"328.9000",
     :id_tiposervicio=>"2",
     :ambito=>"Regional",
@@ -59,7 +59,7 @@ oca.get_shipping_rates(opts)
     :total=>"328.9000",
     :xml=>"<row Tarifador=\"15\" Precio=\"328.9000\"/>",
     :"@diffgr:id"=>"Table1",
-    :"@msdata:row_order"=>"0"}
+    :"@msdata:row_order"=>"0"}]
 ```
 
 ## Contributing & Development
