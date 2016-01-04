@@ -59,12 +59,14 @@ RSpec.describe Oca::Epak::Client do
     let(:origin_zip_code) { "1646" }
     let(:destination_zip_code) { "2000" }
     let(:package_quantity) { "1" }
-    let(:operation_type) { "77790" }
+    let(:operation_code) { "77790" }
+    let(:declared_value) { "100" }
 
     it "returns the shipping price and estimated days until delivery" do
-      opts = { wt: weight, vol: volume, origin: origin_zip_code,
-        destination: destination_zip_code, qty: package_quantity, cuit: cuit,
-        op: operation_type }
+      opts = { total_weight: weight, total_volume: volume, origin_zip_code: origin_zip_code,
+        destination_zip_code: destination_zip_code,
+        declared_value: declared_value, package_quantity: package_quantity,
+        cuit: cuit, operation_code: operation_code }
 
       VCR.use_cassette("get_shipping_rates") do
         response = subject.get_shipping_rates(opts)
