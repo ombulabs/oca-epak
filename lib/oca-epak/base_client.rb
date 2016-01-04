@@ -20,10 +20,12 @@ module Oca
         end
       end
 
+      # @return [Array, nil]
       def parse_results_table(response, method)
         if result = parse_result(response, method)
           if result[:diffgram][:new_data_set]
-            result[:diffgram][:new_data_set][:table]
+            table = result[:diffgram][:new_data_set][:table]
+            table.is_a?(Hash) ? [table] : table
           else
             raise Oca::Errors::BadRequest.new("Oca WS responded with:\n#{response.body}")
           end

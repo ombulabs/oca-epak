@@ -22,32 +22,16 @@ RSpec.describe Oca::Epak::Client do
     end
   end
 
-  describe "#check_operation" do
-    let(:operation_type) { "77790" }
-
-    it "returns true if the operation type exists" do
-      VCR.use_cassette("get_shipping_rates") do
-        expect(subject.check_operation(cuit, operation_type)).to be_truthy
-      end
-    end
-
-    it "returns false if the operation type doesn't exist" do
-      VCR.use_cassette("get_shipping_rates_invalid") do
-        expect(subject.check_operation(cuit, operation_type)).to be_falsey
-      end
-    end
-  end
-
   describe "#get_operation_codes" do
     context "valid user + password" do
       let(:expected_result) do
-        { :id_operativa=>"259563",
+        [{ :id_operativa=>"259563",
           :descripcion=>"259563 - ENVIOS DE SUCURSAL A SUCURSAL",
           :con_volumen=>false,
           :con_valor_declarado=>false,
           :a_sucursal=>false,
           :"@diffgr:id"=>"Table1",
-          :"@msdata:row_order"=>"0" }
+          :"@msdata:row_order"=>"0" }]
       end
 
       it "returns all the operations available for the user" do
@@ -75,19 +59,21 @@ RSpec.describe Oca::Epak::Client do
     let(:origin_zip_code) { "1646" }
     let(:destination_zip_code) { "2000" }
     let(:package_quantity) { "1" }
-    let(:operation_type) { "77790" }
+    let(:operation_code) { "77790" }
+    let(:declared_value) { "100" }
 
     it "returns the shipping price and estimated days until delivery" do
-      opts = { wt: weight, vol: volume, origin: origin_zip_code,
-        destination: destination_zip_code, qty: package_quantity, cuit: cuit,
-        op: operation_type }
+      opts = { total_weight: weight, total_volume: volume, origin_zip_code: origin_zip_code,
+        destination_zip_code: destination_zip_code,
+        declared_value: declared_value, package_quantity: package_quantity,
+        cuit: cuit, operation_code: operation_code }
 
       VCR.use_cassette("get_shipping_rates") do
         response = subject.get_shipping_rates(opts)
         expect(response).to be
-        expect(response[:precio]).to eql("396.6900")
-        expect(response[:ambito]).to eql("Nacional 1")
-        expect(response[:plazo_entrega]).to eql("9")
+        expect(response.first[:precio]).to eql("396.6900")
+        expect(response.first[:ambito]).to eql("Nacional 1")
+        expect(response.first[:plazo_entrega]).to eql("9")
       end
     end
   end

@@ -14,23 +14,7 @@ module Oca
         method = :get_epack_user
         opts = { "usr" => username, "psw" => password }
         response = client.call(method, message: opts)
-        parse_results_table(response, method)[:existe] == "1"
-      end
-
-      # Checks whether the operation is valid
-      #
-      # @param [String] Client's CUIT
-      # @param [String] Operation Type
-      # @return [Boolean]
-      def check_operation(cuit, op)
-        begin
-          opts = { wt: "50", vol: "0.027", origin: "1414", destination: "5403",
-                   qty: "1", total: "123", cuit: cuit, op: op }
-          get_shipping_rates(opts)
-          true
-        rescue Oca::Errors::GenericError => e
-          false
-        end
+        parse_results_table(response, method).first[:existe] == "1"
       end
 
       # Creates a Pickup Order, which lets OCA know you want to make a delivery.
@@ -61,23 +45,26 @@ module Oca
       # Get rates and delivery estimate for a shipment
       #
       # @param [Hash] opts
-      # @option [String] :wt Total Weight e.g: 20
-      # @option [String] :vol Total Volume e.g: 0.0015 (0.1mts * 0.15mts * 0.1mts)
-      # @option [Integer] :origin Origin ZIP Code
-      # @option [Integer] :destination Destination ZIP Code
-      # @option [Integer] :qty Quantity of Packages
-      # @option [Integer] :total Declared Value
+      # @option [String] :total_weight Total Weight e.g: 20
+      # @option [String] :total_volume Total Volume e.g: 0.0015
+      #                                (0.1mts * 0.15mts * 0.1mts)
+      # @option [String] :origin_zip_code Origin ZIP Code
+      # @option [String] :destination_zip_code Destination ZIP Code
+      # @option [String] :declared_value Declared Value
+      # @option [String] :package_quantity Quantity of Packages
       # @option [String] :cuit Client's CUIT e.g: 30-99999999-7
-      # @option [String] :op Operation Type
-      # @return [Hash, nil] Contains Total Price, Delivery Estimate
+      # @option [String] :operation_code Operation Type
+      # @return [Array, nil] Contains Total Price, Delivery Estimate
       def get_shipping_rates(opts = {})
         method = :tarifar_envio_corporativo
-        message = { "PesoTotal" => opts[:wt], "VolumenTotal" => opts[:vol],
-                    "CodigoPostalOrigen" => opts[:origin],
-                    "CodigoPostalDestino" => opts[:destination],
-                    "ValorDeclarado" => opts[:total],
-                    "CantidadPaquetes" => opts[:qty], "Cuit" => opts[:cuit],
-                    "Operativa" => opts[:op] }
+        message = { "PesoTotal" => opts[:total_weight],
+                    "VolumenTotal" => opts[:total_volume],
+                    "CodigoPostalOrigen" => opts[:origin_zip_code],
+                    "CodigoPostalDestino" => opts[:destination_zip_code],
+                    "ValorDeclarado" => opts[:declared_value],
+                    "CantidadPaquetes" => opts[:package_quantity],
+                    "Cuit" => opts[:cuit],
+                    "Operativa" => opts[:operation_code] }
         response = client.call(method, message: message)
         parse_results_table(response, method)
       end

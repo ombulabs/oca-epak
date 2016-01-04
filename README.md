@@ -30,14 +30,6 @@ oca.check_credentials
 => true
 ```
 
-Once you have an operation code from Oca, you can check if it's already active
-and available for use by running `#check_operativa`:
-
-```ruby
-oca.check_operativa("30-99999999-7", "77790")
-=> true
-```
-
 NOTE: Keep in mind that you cannot register/create an operation code via Oca's
 API, you have to get in touch with someone from Oca and they take care of the
 registration.
@@ -46,11 +38,12 @@ After you have your operation code active for a given delivery type, you can
 begin calculating shipping rates and delivery estimates:
 
 ```ruby
-opts = { wt: "50", vol: "0.027", origin: "1646", destination: "2000", qty: "1", 
-  cuit: "30-99999999-7", op: "77790" }
+opts = { total_weight: "50", total_volume: "0.027", origin_zip_code: "1646",
+         destination_zip_code: "2000", declared_value: "100",
+         package_quantity: "1", cuit: "30-99999999-7", operation_code: "77790" }
 
 oca.get_shipping_rates(opts)
-=> {:tarifador=>"15",
+=> [{:tarifador=>"15",
     :precio=>"328.9000",
     :id_tiposervicio=>"2",
     :ambito=>"Regional",
@@ -59,7 +52,7 @@ oca.get_shipping_rates(opts)
     :total=>"328.9000",
     :xml=>"<row Tarifador=\"15\" Precio=\"328.9000\"/>",
     :"@diffgr:id"=>"Table1",
-    :"@msdata:row_order"=>"0"}
+    :"@msdata:row_order"=>"0"}]
 ```
 
 ## Contributing & Development
