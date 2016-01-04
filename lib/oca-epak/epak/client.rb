@@ -17,22 +17,6 @@ module Oca
         parse_results_table(response, method).first[:existe] == "1"
       end
 
-      # Checks whether the operation is valid
-      #
-      # @param [String] Client's CUIT
-      # @param [String] Operation Type
-      # @return [Boolean]
-      def check_operation(cuit, op)
-        begin
-          opts = { wt: "50", vol: "0.027", origin: "1414", destination: "5403",
-                   qty: "1", total: "123", cuit: cuit, op: op }
-          get_shipping_rates(opts)
-          true
-        rescue Oca::Errors::GenericError => e
-          false
-        end
-      end
-
       # Creates a Pickup Order, which lets OCA know you want to make a delivery.
       #
       # @see [http://www.ombushop.com/oca/documentation.pdf] #TODO put it there

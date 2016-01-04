@@ -22,22 +22,6 @@ RSpec.describe Oca::Epak::Client do
     end
   end
 
-  describe "#check_operation" do
-    let(:operation_type) { "77790" }
-
-    it "returns true if the operation type exists" do
-      VCR.use_cassette("get_shipping_rates") do
-        expect(subject.check_operation(cuit, operation_type)).to be_truthy
-      end
-    end
-
-    it "returns false if the operation type doesn't exist" do
-      VCR.use_cassette("get_shipping_rates_invalid") do
-        expect(subject.check_operation(cuit, operation_type)).to be_falsey
-      end
-    end
-  end
-
   describe "#get_operation_codes" do
     context "valid user + password" do
       let(:expected_result) do

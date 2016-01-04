@@ -30,14 +30,6 @@ oca.check_credentials
 => true
 ```
 
-Once you have an operation code from Oca, you can check if it's already active
-and available for use by running `#check_operativa`:
-
-```ruby
-oca.check_operativa("30-99999999-7", "77790")
-=> true
-```
-
 NOTE: Keep in mind that you cannot register/create an operation code via Oca's
 API, you have to get in touch with someone from Oca and they take care of the
 registration.
