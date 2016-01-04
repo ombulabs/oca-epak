@@ -55,7 +55,7 @@ module Oca
       # @option [String] :cuit Client's CUIT e.g: 30-99999999-7
       # @option [String] :operation_code Operation Type
       # @return [Array, nil] Contains Total Price, Delivery Estimate
-      def get_shipping_rates(opts = {})
+      def get_shipping_rate(opts = {})
         method = :tarifar_envio_corporativo
         message = { "PesoTotal" => opts[:total_weight],
                     "VolumenTotal" => opts[:total_volume],

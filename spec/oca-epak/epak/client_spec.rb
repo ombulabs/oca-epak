@@ -53,7 +53,7 @@ RSpec.describe Oca::Epak::Client do
     end
   end
 
-  describe "#get_shipping_rates" do
+  describe "#get_shipping_rate" do
     let(:weight) { "50" }
     let(:volume) { "0.027" }
     let(:origin_zip_code) { "1646" }
@@ -68,8 +68,8 @@ RSpec.describe Oca::Epak::Client do
         declared_value: declared_value, package_quantity: package_quantity,
         cuit: cuit, operation_code: operation_code }
 
-      VCR.use_cassette("get_shipping_rates") do
-        response = subject.get_shipping_rates(opts)
+      VCR.use_cassette("get_shipping_rate") do
+        response = subject.get_shipping_rate(opts)
         expect(response).to be
         expect(response.first[:precio]).to eql("396.6900")
         expect(response.first[:ambito]).to eql("Nacional 1")
