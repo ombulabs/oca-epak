@@ -41,13 +41,13 @@ RSpec.describe Oca::Epak::Client do
   describe "#get_operation_codes" do
     context "valid user + password" do
       let(:expected_result) do
-        { :id_operativa=>"259563",
+        [{ :id_operativa=>"259563",
           :descripcion=>"259563 - ENVIOS DE SUCURSAL A SUCURSAL",
           :con_volumen=>false,
           :con_valor_declarado=>false,
           :a_sucursal=>false,
           :"@diffgr:id"=>"Table1",
-          :"@msdata:row_order"=>"0" }
+          :"@msdata:row_order"=>"0" }]
       end
 
       it "returns all the operations available for the user" do
@@ -85,9 +85,9 @@ RSpec.describe Oca::Epak::Client do
       VCR.use_cassette("get_shipping_rates") do
         response = subject.get_shipping_rates(opts)
         expect(response).to be
-        expect(response[:precio]).to eql("396.6900")
-        expect(response[:ambito]).to eql("Nacional 1")
-        expect(response[:plazo_entrega]).to eql("9")
+        expect(response.first[:precio]).to eql("396.6900")
+        expect(response.first[:ambito]).to eql("Nacional 1")
+        expect(response.first[:plazo_entrega]).to eql("9")
       end
     end
   end
