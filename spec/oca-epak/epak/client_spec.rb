@@ -70,10 +70,10 @@ RSpec.describe Oca::Epak::Client do
 
       VCR.use_cassette("get_shipping_rate") do
         response = subject.get_shipping_rate(opts)
-        expect(response).to be
-        expect(response.first[:precio]).to eql("396.6900")
-        expect(response.first[:ambito]).to eql("Nacional 1")
-        expect(response.first[:plazo_entrega]).to eql("9")
+        expect(response).to be_a Hash
+        expect(response[:precio]).to eql("396.6900")
+        expect(response[:ambito]).to eql("Nacional 1")
+        expect(response[:plazo_entrega]).to eql("9")
       end
     end
   end

@@ -54,7 +54,7 @@ module Oca
       # @option [String] :package_quantity Quantity of Packages
       # @option [String] :cuit Client's CUIT e.g: 30-99999999-7
       # @option [String] :operation_code Operation Type
-      # @return [Array, nil] Contains Total Price, Delivery Estimate
+      # @return [Hash, nil] Contains Total Price, Delivery Estimate
       def get_shipping_rate(opts = {})
         method = :tarifar_envio_corporativo
         message = { "PesoTotal" => opts[:total_weight],
@@ -66,7 +66,7 @@ module Oca
                     "Cuit" => opts[:cuit],
                     "Operativa" => opts[:operation_code] }
         response = client.call(method, message: message)
-        parse_results_table(response, method)
+        parse_results_table(response, method).first
       end
 
       # Returns all existing Taxation Centers
