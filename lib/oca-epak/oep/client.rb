@@ -9,9 +9,9 @@ module Oca
 
       # Returns the HTML for a label
       #
-      # @param opts
-      # @option id_orden_retiro [Integer]
-      # @option nro_envio [String]
+      # @param [Hash] opts
+      # @option opts [Integer] :id_orden_retiro
+      # @option opts [String] :nro_envio
       # @return [String] HTML
       def get_html_de_etiquetas_por_orden_or_numero_envio(opts = {})
         method = :get_html_de_etiquetas_por_orden_or_numero_envio

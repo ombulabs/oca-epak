@@ -6,9 +6,9 @@ module Oca
       # Creates a Pickup Data object for creating a pickup order in OCA.
       #
       # @param [Hash] opts
-      # @option [String] :account_number Account Number (SAP)
-      # @option [Hash] :pickup Pickup Hash
-      # @option [Array<Hash>] :shipments Shipments Hash
+      # @option opts [String] :account_number Account Number (SAP)
+      # @option opts [Hash] :pickup Pickup Hash
+      # @option opts [Array<Hash>] :shipments Shipments Hash
       def initialize(opts = {})
         self.account_number = opts[:account_number]
         self.pickup = opts[:pickup]

@@ -19,13 +19,13 @@ module Oca
 
       # Creates a Pickup Order, which lets OCA know you want to make a delivery.
       #
-      # @see [http://www.ombushop.com/oca/documentation.pdf] #TODO put it there
+      # @see https://github.com/ombulabs/oca-epak/blob/master/doc/OCAWebServices.pdf
       #
       # @param [Hash] opts
-      # @option [Oca::Epak::PickupData] :pickup_data Pickup Data object
-      # @option [Boolean] :confirm_pickup Confirm Pickup? Defaults to false
-      # @option [Integer] :days_to_pickup Days OCA should wait before pickup, default: 1
-      # @option [Integer] :pickup_range Range to be used when picking it up, default: 1
+      # @option opts [Oca::Epak::PickupData] :pickup_data Pickup Data object
+      # @option opts [Boolean] :confirm_pickup Confirm Pickup? Defaults to false
+      # @option opts [Integer] :days_to_pickup Days OCA should wait before pickup, default: 1
+      # @option opts [Integer] :pickup_range Range to be used when picking it up, default: 1
       # @return [Hash, nil]
       def create_pickup_order(opts = {})
         confirm_pickup = opts.fetch(:confirm_pickup, false)
@@ -45,15 +45,15 @@ module Oca
       # Get rates and delivery estimate for a shipment
       #
       # @param [Hash] opts
-      # @option [String] :total_weight Total Weight e.g: 20
-      # @option [String] :total_volume Total Volume e.g: 0.0015
+      # @option opts [String] :total_weight Total Weight e.g: 20
+      # @option opts [String] :total_volume Total Volume e.g: 0.0015
       #                                (0.1mts * 0.15mts * 0.1mts)
-      # @option [String] :origin_zip_code Origin ZIP Code
-      # @option [String] :destination_zip_code Destination ZIP Code
-      # @option [String] :declared_value Declared Value
-      # @option [String] :package_quantity Quantity of Packages
-      # @option [String] :cuit Client's CUIT e.g: 30-99999999-7
-      # @option [String] :operation_code Operation Type
+      # @option opts [String] :origin_zip_code Origin ZIP Code
+      # @option opts [String] :destination_zip_code Destination ZIP Code
+      # @option opts [String] :declared_value Declared Value
+      # @option opts [String] :package_quantity Quantity of Packages
+      # @option opts [String] :cuit Client's CUIT e.g: 30-99999999-7
+      # @option opts [String] :operation_code Operation Type
       # @return [Hash, nil] Contains Total Price, Delivery Estimate
       def get_shipping_rate(opts = {})
         method = :tarifar_envio_corporativo
