@@ -17,7 +17,7 @@ If you intend to use it within an application, add `gem "oca-epak"` to your
 
 ## Usage
 
-There's two OCA clients available, one for each endpoint. `Oca::Epak::Client`
+There are two OCA clients available, one for each endpoint. `Oca::Epak::Client`
 provides most of OCA's Epak offerings. The other one, which uses an older
 endpoint, `Oca::Oep::Client`, provides only a few methods which aren't yet
 available under the new endpoint.
@@ -132,11 +132,24 @@ pickup_data = Oca::Epak::PickupData.new(opts)
 After you create the `PickupData` object, you can submit the shipment:
 
 ```ruby
-epak_client.create_pickup_order(pickup_data)
+response = epak_client.create_pickup_order(pickup_data)
+response[:diffgram]
+=> {:resultado=>
+    {:resumen=>
+      {:codigo_operacion=>"13150502",
+       :fecha_ingreso=>#<DateTime: 2015-11-17T11:43:50-03:00 ((2457344j,53030s,607000000n),-10800s,2299161j)>,
+       :mail_usuario=>"hola@ombushop.com",
+       :cantidad_registros=>"1",
+       :cantidad_ingresados=>"1",
+       :cantidad_rechazados=>"0",
+       :"@diffgr:id"=>"Resumen1",
+       :"@msdata:row_order"=>"0"}
+     }
+   }
 ```
 
 `#create_pickup_order` has a few extra options you can check by browsing the
-method's documentation.
+[method's documentation](http://www.rubydoc.info/github/ombulabs/oca-epak/master/Oca%2FEpak%2FClient%3Acreate_pickup_order).
 
 ## Contributing & Development
 
