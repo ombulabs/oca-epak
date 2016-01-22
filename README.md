@@ -3,6 +3,7 @@ Ruby Wrapper for OCA e-Pak API
 
 [![Gem Version](https://badge.fury.io/rb/oca-epak.svg)](http://badge.fury.io/rb/oca-epak)
 [![Build Status](https://travis-ci.org/ombulabs/oca-epak.svg?branch=master)](https://travis-ci.org/ombulabs/oca-epak)
+[![Code Climate](https://codeclimate.com/github/ombulabs/oca-epak/badges/gpa.svg)](https://codeclimate.com/github/ombulabs/oca-epak)
 
 ## Getting Started
 
