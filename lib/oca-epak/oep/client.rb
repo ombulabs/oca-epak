@@ -20,6 +20,21 @@ module Oca
         response = client.call(method, message: opts)
         parse_result(response, method)
       end
+
+      # Returns the PDF (Base64 encoded) for a label
+      #
+      # @param [Hash] opts
+      # @option opts [Integer] :id_orden_retiro
+      # @option opts [String] :nro_envio
+      # @return [String] PDF data Base64 encoded
+      def get_pdf_de_etiquetas_por_orden_or_numero_envio(opts = {})
+        method = :get_pdf_de_etiquetas_por_orden_or_numero_envio
+        opts = { "idOrdenRetiro" => opts[:id_orden_retiro],
+                 "nroEnvio" => opts[:nro_envio],
+                 "logisticaInversa" => false }
+        response = client.call(method, message: opts)
+        parse_result(response, method)
+      end
     end
   end
 end
