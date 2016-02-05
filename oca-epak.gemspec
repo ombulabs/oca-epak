@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.description = "Ruby wrapper for the OCA E-Pak API"
   s.authors     = ["Mauro Otonelli", "Ernesto Tagwerker"]
   s.email       = ["mauro@ombulabs.com", "ernesto@ombulabs.com"]
-  s.files       = Dir["lib/**/**.rb", "lib/**/**.xml"]
+  s.files       = Dir["lib/**/**.rb", "lib/**/**.erb"]
   s.homepage    = "https://github.com/ombulabs/oca-epak"
   s.license     = "MIT"
 
