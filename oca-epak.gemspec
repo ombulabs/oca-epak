@@ -1,14 +1,15 @@
 require File.expand_path("../lib/oca-epak/version", __FILE__)
 
 Gem::Specification.new do |s|
-  s.name        = 'oca-epak'
+  s.name        = "oca-epak"
   s.version     = Oca::Epak::VERSION
   s.summary     = "OCA E-Pak"
   s.description = "Ruby wrapper for the OCA E-Pak API"
   s.authors     = ["Mauro Otonelli", "Ernesto Tagwerker"]
   s.email       = ["mauro@ombulabs.com", "ernesto@ombulabs.com"]
-  s.files       = Dir["lib/**/**.rb"]
-  s.homepage    = 'https://github.com/ombulabs/oca-epak'
+  s.files       = Dir["lib/**/**.rb", "lib/**/**.xml"]
+  s.homepage    = "https://github.com/ombulabs/oca-epak"
+  s.license     = "MIT"
 
   s.add_dependency("savon", "~> 2.11")
   s.add_development_dependency("rspec", "~> 3.3")
