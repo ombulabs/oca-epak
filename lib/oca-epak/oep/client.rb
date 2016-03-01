@@ -30,10 +30,11 @@ module Oca
       def get_pdf_de_etiquetas_por_orden_or_numero_envio(opts = {})
         method = :get_pdf_de_etiquetas_por_orden_or_numero_envio
         opts = { "idOrdenRetiro" => opts[:id_orden_retiro],
-                 "nroEnvio" => opts[:nro_envio],
-                 "logisticaInversa" => false }
+                 "nroEnvio" => opts[:nro_envio] }
         response = client.call(method, message: opts)
         parse_result(response, method)
+      rescue Savon::SOAPFault => error
+        raise Oca::Errors::BadRequest.new("Oca WS responded with:\nERROR:#{error.http.code}\n#{error.to_s}")
       end
     end
   end
