@@ -3,7 +3,8 @@ module Oca
     attr_reader :client
     attr_accessor :username, :password
 
-    BASE_WSDL_URL = 'http://webservice.oca.com.ar'.freeze
+    BASE_WSDL_URL = "http://webservice.oca.com.ar".freeze
+    FALSE_STRING = "false".freeze
 
     def initialize(username, password)
       @username = username

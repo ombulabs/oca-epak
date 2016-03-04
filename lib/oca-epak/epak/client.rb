@@ -1,10 +1,14 @@
 module Oca
   module Epak
     class Client < BaseClient
+      ONE_STRING = "1".freeze
+      USER_STRING = "usr".freeze
+      PASSWORD_STRING = "psw".freeze
+      WSDL_URL = "#{BASE_WSDL_URL}/epak_tracking/Oep_TrackEPak.asmx?wsdl".freeze
+
       def initialize(username, password)
         super
-        wsdl_url = "#{BASE_WSDL_URL}/epak_tracking/Oep_TrackEPak.asmx?wsdl"
-        @client = Savon.client(wsdl: wsdl_url)
+        @client = Savon.client(wsdl: WSDL_URL)
       end
 
       # Checks if the user has input valid credentials
@@ -12,9 +16,9 @@ module Oca
       # @return [Boolean] Whether the credentials entered are valid or not
       def check_credentials
         method = :get_epack_user
-        opts = { "usr" => username, "psw" => password }
+        opts = { USER_STRING => username, PASSWORD_STRING => password }
         response = client.call(method, message: opts)
-        parse_results_table(response, method).first[:existe] == "1"
+        parse_results_table(response, method).first[:existe] == ONE_STRING
       end
 
       # Creates a Pickup Order, which lets OCA know you want to make a delivery.
@@ -28,12 +32,12 @@ module Oca
       # @option opts [Integer] :pickup_range Range to be used when picking it up, default: 1
       # @return [Hash, nil]
       def create_pickup_order(opts = {})
-        confirm_pickup = opts.fetch(:confirm_pickup, false)
-        days_to_pickup = opts.fetch(:days_to_pickup, "1")
-        pickup_range = opts.fetch(:pickup_range, "1")
+        confirm_pickup = opts.fetch(:confirm_pickup, FALSE_STRING)
+        days_to_pickup = opts.fetch(:days_to_pickup, ONE_STRING)
+        pickup_range = opts.fetch(:pickup_range, ONE_STRING)
         rendered_xml = opts[:pickup_data].to_xml
 
-        message = { "usr" => username, "psw" => password,
+        message = { USER_STRING => username, PASSWORD_STRING => password,
                     "xml_Datos" => rendered_xml,
                     "ConfirmarRetiro" => confirm_pickup.to_s,
                     "DiasHastaRetiro" => days_to_pickup,
@@ -83,7 +87,7 @@ module Oca
       # @return [Array, nil] Returns all operation codes available for the user
       def get_operation_codes
         method = :get_operativas_by_usuario
-        opts = { "usr" => username, "psw" => password }
+        opts = { USER_STRING => username, PASSWORD_STRING => password }
         response = client.call(method, message: opts)
         parse_results_table(response, method)
       end

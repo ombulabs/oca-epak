@@ -1,6 +1,8 @@
 module Oca
   module Epak
     class PickupData
+      PATH_TO_XML = File.expand_path("../retiro.xml.erb", __FILE__).freeze
+
       attr_accessor :account_number, :pickup, :shipments
 
       # Creates a Pickup Data object for creating a pickup order in OCA.
@@ -22,8 +24,7 @@ module Oca
       private
 
         def or_template
-          path_to_xml = File.expand_path("../retiro.xml.erb", __FILE__)
-          ERB.new(File.read(path_to_xml), nil, "-")
+          ERB.new(File.read(PATH_TO_XML), nil, "-")
         end
     end
   end
