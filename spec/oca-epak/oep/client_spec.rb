@@ -49,7 +49,7 @@ RSpec.describe Oca::Oep::Client do
       end
     end
 
-    it "raises when attempt to generates the PDF of a delivery for a non-existing order" do
+    it "raises when attempting to generate the PDF for a non-existing order" do
       VCR.use_cassette("non_existing_delivery_pdf") do
         expect do
           subject.get_pdf_de_etiquetas_por_orden_or_numero_envio(
