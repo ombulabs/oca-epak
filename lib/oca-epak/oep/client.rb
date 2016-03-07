@@ -1,10 +1,11 @@
 module Oca
   module Oep
     class Client < BaseClient
+      WSDL_URL = "#{BASE_WSDL_URL}/oep_tracking/Oep_Track.asmx?wsdl".freeze
+
       def initialize(username, password)
         super
-        wsdl_url = "#{BASE_WSDL_URL}/oep_tracking/Oep_Track.asmx?wsdl"
-        @client = Savon.client(wsdl: wsdl_url)
+        @client = Savon.client(wsdl: WSDL_URL)
       end
 
       # Returns the HTML for a label
@@ -33,7 +34,7 @@ module Oca
         opts = {
           "idOrdenRetiro" => opts[:id_orden_retiro],
           "nroEnvio" => opts[:nro_envio],
-          "logisticaInversa" => opts.fetch(:logistica_inversa, "false").to_s
+          "logisticaInversa" => opts.fetch(:logistica_inversa, FALSE_STRING).to_s
         }
         response = client.call(method, message: opts)
         parse_result(response, method)
