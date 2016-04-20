@@ -39,7 +39,7 @@ module Oca
         response = client.call(method, message: opts)
         parse_result(response, method)
       rescue Savon::SOAPFault => error
-        msg = "Oca WS responded with:\n#{error.http.code}\n#{error.to_s}"
+        msg = "Oca WS responded with:\n#{error.http.code}\n#{error}"
         raise Oca::Errors::BadRequest.new(msg)
       end
     end
