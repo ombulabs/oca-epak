@@ -1,0 +1,1663 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://webservice.oca.com.ar/oep_tracking/Oep_Track.asmx?wsdl
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.5.0, ruby 2.1.6 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 01 Mar 2016 15:53:44 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 01 Mar 2016 15:51:31 GMT
+      Server:
+      - Microsoft-IIS/6.0
+      X-Powered-By:
+      - ASP.NET
+      X-Aspnet-Version:
+      - 2.0.50727
+      Cache-Control:
+      - private, max-age=0
+      Content-Type:
+      - text/xml; charset=utf-8
+      Content-Length:
+      - '128119'
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<wsdl:definitions xmlns:soap=\"http://schemas.xmlsoap.org/wsdl/soap/\"
+        xmlns:tm=\"http://microsoft.com/wsdl/mime/textMatching/\" xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"
+        xmlns:mime=\"http://schemas.xmlsoap.org/wsdl/mime/\" xmlns:tns=\"#Oca_Express_Pak\"
+        xmlns:s1=\"#Oca_Express_Pak/AbstractTypes\" xmlns:s=\"http://www.w3.org/2001/XMLSchema\"
+        xmlns:soap12=\"http://schemas.xmlsoap.org/wsdl/soap12/\" xmlns:http=\"http://schemas.xmlsoap.org/wsdl/http/\"
+        targetNamespace=\"#Oca_Express_Pak\" xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">\r\n
+        \ <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Servicios
+        Web Públicos de OCA Express Pak</wsdl:documentation>\r\n  <wsdl:types>\r\n
+        \   <s:schema elementFormDefault=\"qualified\" targetNamespace=\"#Oca_Express_Pak\">\r\n
+        \     <s:element name=\"List_Envios\">\r\n        <s:complexType>\r\n          <s:sequence>\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CUIT\" type=\"s:string\"
+        />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"FechaDesde\"
+        type=\"s:string\" />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"FechaHasta\" type=\"s:string\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"List_EnviosResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"List_EnviosResult\">\r\n              <s:complexType>\r\n                <s:sequence>\r\n
+        \                 <s:element ref=\"s:schema\" />\r\n                  <s:any
+        />\r\n                </s:sequence>\r\n              </s:complexType>\r\n
+        \           </s:element>\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"Tracking_Pieza\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"NroDocumentoCliente\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CUIT\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Pieza\" type=\"s:string\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"Tracking_PiezaResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Tracking_PiezaResult\">\r\n              <s:complexType>\r\n
+        \               <s:sequence>\r\n                  <s:element ref=\"s:schema\"
+        />\r\n                  <s:any />\r\n                </s:sequence>\r\n              </s:complexType>\r\n
+        \           </s:element>\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"Tracking_OrdenRetiro\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CUIT\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"OrdenRetiro\" type=\"s:int\" />\r\n
+        \         </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"Tracking_OrdenRetiroResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Tracking_OrdenRetiroResult\">\r\n              <s:complexType>\r\n
+        \               <s:sequence>\r\n                  <s:element ref=\"s:schema\"
+        />\r\n                  <s:any />\r\n                </s:sequence>\r\n              </s:complexType>\r\n
+        \           </s:element>\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"Tarifar_Envio_Corporativo\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"PesoTotal\" type=\"s:string\" />\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"VolumenTotal\"
+        type=\"s:string\" />\r\n            <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"CodigoPostalOrigen\" type=\"s:int\" />\r\n            <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"CodigoPostalDestino\" type=\"s:int\" />\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"CantidadPaquetes\" type=\"s:long\"
+        />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Cuit\"
+        type=\"s:string\" />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Operativa\" type=\"s:string\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"Tarifar_Envio_CorporativoResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Tarifar_Envio_CorporativoResult\">\r\n
+        \             <s:complexType>\r\n                <s:sequence>\r\n                  <s:element
+        ref=\"s:schema\" />\r\n                  <s:any />\r\n                </s:sequence>\r\n
+        \             </s:complexType>\r\n            </s:element>\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"AnularOrdenGenerada\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"usuario\" type=\"s:string\" />\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"password\" type=\"s:string\"
+        />\r\n            <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"nroOrden\"
+        type=\"s:int\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"AnularOrdenGeneradaResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"AnularOrdenGeneradaResult\">\r\n              <s:complexType>\r\n
+        \               <s:sequence>\r\n                  <s:element ref=\"s:schema\"
+        />\r\n                  <s:any />\r\n                </s:sequence>\r\n              </s:complexType>\r\n
+        \           </s:element>\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GenerarConsolidacionDeOrdenesDeRetiro\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"usr\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"psw\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ordenesDeRetiro\" type=\"s:string\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GenerarConsolidacionDeOrdenesDeRetiroResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GenerarConsolidacionDeOrdenesDeRetiroResult\"
+        type=\"s:string\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetEnviosUltimoEstado\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"cuit\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"operativas\" type=\"tns:ArrayOfString\"
+        />\r\n            <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"fechaDesde\"
+        type=\"s:dateTime\" />\r\n            <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"fechaHasta\" type=\"s:dateTime\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:complexType name=\"ArrayOfString\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"string\" nillable=\"true\" type=\"s:string\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:element name=\"GetEnviosUltimoEstadoResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetEnviosUltimoEstadoResult\">\r\n
+        \             <s:complexType>\r\n                <s:sequence>\r\n                  <s:element
+        ref=\"s:schema\" />\r\n                  <s:any />\r\n                </s:sequence>\r\n
+        \             </s:complexType>\r\n            </s:element>\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"GenerateQrByOrdenDeRetiro\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"usr\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"psw\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"idOrdenDeRetiro\" type=\"s:string\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GenerateQrByOrdenDeRetiroResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"GenerateQrByOrdenDeRetiroResult\" type=\"s:string\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"GenerateQRParaPaquetes\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"usr\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"psw\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"numeroDeEnvio\" type=\"s:string\" />\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"idpaquete\"
+        type=\"s:string\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GenerateQRParaPaquetesResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GenerateQRParaPaquetesResult\" type=\"s:string\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GenerateListQrPorEnvio\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"usr\" type=\"s:string\" />\r\n            <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"psw\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"numeroDeEnvio\" type=\"s:string\" />\r\n
+        \         </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GenerateListQrPorEnvioResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"GenerateListQrPorEnvioResult\" type=\"tns:ArrayOfString\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"IngresoOR\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"usr\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"psw\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"XML_Retiro\" type=\"s:string\" />\r\n
+        \           <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"ConfirmarRetiro\"
+        type=\"s:boolean\" />\r\n            <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"DiasRetiro\" type=\"s:int\" />\r\n            <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"FranjaHoraria\" type=\"s:int\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"IngresoORResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"IngresoORResult\">\r\n              <s:complexType>\r\n
+        \               <s:sequence>\r\n                  <s:element ref=\"s:schema\"
+        />\r\n                  <s:any />\r\n                </s:sequence>\r\n              </s:complexType>\r\n
+        \           </s:element>\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetCentroCostoPorOperativa\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CUIT\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"Operativa\" type=\"s:int\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"GetCentroCostoPorOperativaResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetCentroCostoPorOperativaResult\">\r\n
+        \             <s:complexType>\r\n                <s:sequence>\r\n                  <s:element
+        ref=\"s:schema\" />\r\n                  <s:any />\r\n                </s:sequence>\r\n
+        \             </s:complexType>\r\n            </s:element>\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"GetCentrosImposicion\">\r\n
+        \       <s:complexType />\r\n      </s:element>\r\n      <s:element name=\"GetCentrosImposicionResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetCentrosImposicionResult\">\r\n              <s:complexType>\r\n
+        \               <s:sequence>\r\n                  <s:element ref=\"s:schema\"
+        />\r\n                  <s:any />\r\n                </s:sequence>\r\n              </s:complexType>\r\n
+        \           </s:element>\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetELockerOCA\">\r\n        <s:complexType
+        />\r\n      </s:element>\r\n      <s:element name=\"GetELockerOCAResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetELockerOCAResult\">\r\n              <s:complexType>\r\n
+        \               <s:sequence>\r\n                  <s:element ref=\"s:schema\"
+        />\r\n                  <s:any />\r\n                </s:sequence>\r\n              </s:complexType>\r\n
+        \           </s:element>\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetCentrosImposicionAdmision\">\r\n
+        \       <s:complexType />\r\n      </s:element>\r\n      <s:element name=\"GetCentrosImposicionAdmisionResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetCentrosImposicionAdmisionResult\">\r\n
+        \             <s:complexType>\r\n                <s:sequence>\r\n                  <s:element
+        ref=\"s:schema\" />\r\n                  <s:any />\r\n                </s:sequence>\r\n
+        \             </s:complexType>\r\n            </s:element>\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"GetServiciosDeCentrosImposicion\">\r\n
+        \       <s:complexType />\r\n      </s:element>\r\n      <s:element name=\"GetServiciosDeCentrosImposicionResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetServiciosDeCentrosImposicionResult\">\r\n
+        \             <s:complexType mixed=\"true\">\r\n                <s:sequence>\r\n
+        \                 <s:any />\r\n                </s:sequence>\r\n              </s:complexType>\r\n
+        \           </s:element>\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"TrackingEnvio_EstadoActual\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"numeroEnvio\" type=\"s:string\" />\r\n
+        \         </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"TrackingEnvio_EstadoActualResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"TrackingEnvio_EstadoActualResult\">\r\n              <s:complexType
+        mixed=\"true\">\r\n                <s:sequence>\r\n                  <s:any
+        />\r\n                </s:sequence>\r\n              </s:complexType>\r\n
+        \           </s:element>\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetProvincias\">\r\n        <s:complexType
+        />\r\n      </s:element>\r\n      <s:element name=\"GetProvinciasResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetProvinciasResult\">\r\n              <s:complexType
+        mixed=\"true\">\r\n                <s:sequence>\r\n                  <s:any
+        />\r\n                </s:sequence>\r\n              </s:complexType>\r\n
+        \           </s:element>\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetLocalidadesByProvincia\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"idProvincia\" type=\"s:int\" />\r\n
+        \         </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GetLocalidadesByProvinciaResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"GetLocalidadesByProvinciaResult\">\r\n              <s:complexType
+        mixed=\"true\">\r\n                <s:sequence>\r\n                  <s:any
+        />\r\n                </s:sequence>\r\n              </s:complexType>\r\n
+        \           </s:element>\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetServiciosDeCentrosImposicion_xProvincia\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"provinciaID\" type=\"s:int\" />\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"localidad\"
+        type=\"s:string\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetServiciosDeCentrosImposicion_xProvinciaResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetServiciosDeCentrosImposicion_xProvinciaResult\">\r\n
+        \             <s:complexType mixed=\"true\">\r\n                <s:sequence>\r\n
+        \                 <s:any />\r\n                </s:sequence>\r\n              </s:complexType>\r\n
+        \           </s:element>\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetCentrosImposicionPorCP\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoPostal\" type=\"s:string\" />\r\n
+        \         </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GetCentrosImposicionPorCPResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"GetCentrosImposicionPorCPResult\">\r\n              <s:complexType>\r\n
+        \               <s:sequence>\r\n                  <s:element ref=\"s:schema\"
+        />\r\n                  <s:any />\r\n                </s:sequence>\r\n              </s:complexType>\r\n
+        \           </s:element>\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetCentrosImposicionAdmisionPorCP\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoPostal\" type=\"s:string\" />\r\n
+        \         </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GetCentrosImposicionAdmisionPorCPResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"GetCentrosImposicionAdmisionPorCPResult\">\r\n              <s:complexType>\r\n
+        \               <s:sequence>\r\n                  <s:element ref=\"s:schema\"
+        />\r\n                  <s:any />\r\n                </s:sequence>\r\n              </s:complexType>\r\n
+        \           </s:element>\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"idOrdenRetiro\" type=\"s:int\" />\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"nroEnvio\" type=\"s:string\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioResult\"
+        type=\"s:string\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadora\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"idOrdenRetiro\" type=\"s:int\" />\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"nroEnvio\" type=\"s:string\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadoraResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadoraResult\"
+        type=\"s:string\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetDatosDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"idOrdenRetiro\" type=\"s:int\" />\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"nroEnvio\" type=\"s:string\"
+        />\r\n            <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"isLocker\"
+        type=\"s:boolean\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetDatosDeEtiquetasPorOrdenOrNumeroEnvioResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetDatosDeEtiquetasPorOrdenOrNumeroEnvioResult\"
+        type=\"tns:ArrayOfEtiqueta\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:complexType name=\"ArrayOfEtiqueta\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"Etiqueta\"
+        nillable=\"true\" type=\"tns:Etiqueta\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"Etiqueta\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"NroOrden\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"NroGuia\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DocCliente\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Servicio\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"Bulto\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Operativa\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"PesoTotal\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"SucursalDestino\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"SucursalOrigen\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"SucursalGuarda\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Entrega\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Destinatario\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Domicilio\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"Telefono\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Remitente\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Observaciones\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CodigoApertura\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"QR\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"CodeBar\" type=\"s:string\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:element name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvio\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"idOrdenRetiro\" type=\"s:int\" />\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"nroEnvio\" type=\"s:string\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioResult\"
+        type=\"s:string\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadora\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"idOrdenRetiro\" type=\"s:int\" />\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"nroEnvio\" type=\"s:string\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadoraResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadoraResult\"
+        type=\"s:string\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetPdfDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"idOrdenRetiro\" type=\"s:int\" />\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"nroEnvio\" type=\"s:string\"
+        />\r\n            <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"logisticaInversa\"
+        type=\"s:boolean\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"GetPdfDeEtiquetasPorOrdenOrNumeroEnvioResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"GetPdfDeEtiquetasPorOrdenOrNumeroEnvioResult\"
+        type=\"s:string\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"DataSet\" nillable=\"true\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        ref=\"s:schema\" />\r\n            <s:any />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"string\"
+        nillable=\"true\" type=\"s:string\" />\r\n      <s:element name=\"ArrayOfString\"
+        nillable=\"true\" type=\"tns:ArrayOfString\" />\r\n      <s:element name=\"ArrayOfEtiqueta\"
+        nillable=\"true\" type=\"tns:ArrayOfEtiqueta\" />\r\n    </s:schema>\r\n    <s:schema
+        targetNamespace=\"#Oca_Express_Pak/AbstractTypes\">\r\n      <s:import namespace=\"http://schemas.xmlsoap.org/soap/encoding/\"
+        />\r\n      <s:complexType name=\"StringArray\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:restriction base=\"soapenc:Array\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"String\"
+        type=\"s:string\" />\r\n            </s:sequence>\r\n          </s:restriction>\r\n
+        \       </s:complexContent>\r\n      </s:complexType>\r\n    </s:schema>\r\n
+        \ </wsdl:types>\r\n  <wsdl:message name=\"List_EnviosSoapIn\">\r\n    <wsdl:part
+        name=\"parameters\" element=\"tns:List_Envios\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"List_EnviosSoapOut\">\r\n    <wsdl:part name=\"parameters\"
+        element=\"tns:List_EnviosResponse\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"Tracking_PiezaSoapIn\">\r\n    <wsdl:part name=\"parameters\" element=\"tns:Tracking_Pieza\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"Tracking_PiezaSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:Tracking_PiezaResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"Tracking_OrdenRetiroSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:Tracking_OrdenRetiro\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"Tracking_OrdenRetiroSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:Tracking_OrdenRetiroResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"Tarifar_Envio_CorporativoSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:Tarifar_Envio_Corporativo\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"Tarifar_Envio_CorporativoSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:Tarifar_Envio_CorporativoResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"AnularOrdenGeneradaSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:AnularOrdenGenerada\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"AnularOrdenGeneradaSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:AnularOrdenGeneradaResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GenerarConsolidacionDeOrdenesDeRetiroSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GenerarConsolidacionDeOrdenesDeRetiro\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GenerarConsolidacionDeOrdenesDeRetiroSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GenerarConsolidacionDeOrdenesDeRetiroResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetEnviosUltimoEstadoSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetEnviosUltimoEstado\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"GetEnviosUltimoEstadoSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetEnviosUltimoEstadoResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GenerateQrByOrdenDeRetiroSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GenerateQrByOrdenDeRetiro\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GenerateQrByOrdenDeRetiroSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GenerateQrByOrdenDeRetiroResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GenerateQRParaPaquetesSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GenerateQRParaPaquetes\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GenerateQRParaPaquetesSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GenerateQRParaPaquetesResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GenerateListQrPorEnvioSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GenerateListQrPorEnvio\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GenerateListQrPorEnvioSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GenerateListQrPorEnvioResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"IngresoORSoapIn\">\r\n    <wsdl:part
+        name=\"parameters\" element=\"tns:IngresoOR\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"IngresoORSoapOut\">\r\n    <wsdl:part name=\"parameters\"
+        element=\"tns:IngresoORResponse\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetCentroCostoPorOperativaSoapIn\">\r\n    <wsdl:part name=\"parameters\"
+        element=\"tns:GetCentroCostoPorOperativa\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetCentroCostoPorOperativaSoapOut\">\r\n    <wsdl:part name=\"parameters\"
+        element=\"tns:GetCentroCostoPorOperativaResponse\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetCentrosImposicionSoapIn\">\r\n    <wsdl:part name=\"parameters\"
+        element=\"tns:GetCentrosImposicion\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetCentrosImposicionSoapOut\">\r\n    <wsdl:part name=\"parameters\"
+        element=\"tns:GetCentrosImposicionResponse\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetELockerOCASoapIn\">\r\n    <wsdl:part name=\"parameters\" element=\"tns:GetELockerOCA\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetELockerOCASoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetELockerOCAResponse\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"GetCentrosImposicionAdmisionSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetCentrosImposicionAdmision\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetCentrosImposicionAdmisionSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetCentrosImposicionAdmisionResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetServiciosDeCentrosImposicionSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetServiciosDeCentrosImposicion\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetServiciosDeCentrosImposicionSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetServiciosDeCentrosImposicionResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"TrackingEnvio_EstadoActualSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:TrackingEnvio_EstadoActual\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"TrackingEnvio_EstadoActualSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:TrackingEnvio_EstadoActualResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetProvinciasSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetProvincias\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetProvinciasSoapOut\">\r\n    <wsdl:part name=\"parameters\"
+        element=\"tns:GetProvinciasResponse\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetLocalidadesByProvinciaSoapIn\">\r\n    <wsdl:part name=\"parameters\"
+        element=\"tns:GetLocalidadesByProvincia\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetLocalidadesByProvinciaSoapOut\">\r\n    <wsdl:part name=\"parameters\"
+        element=\"tns:GetLocalidadesByProvinciaResponse\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetServiciosDeCentrosImposicion_xProvinciaSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetServiciosDeCentrosImposicion_xProvincia\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetServiciosDeCentrosImposicion_xProvinciaSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetServiciosDeCentrosImposicion_xProvinciaResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetCentrosImposicionPorCPSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetCentrosImposicionPorCP\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetCentrosImposicionPorCPSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetCentrosImposicionPorCPResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetCentrosImposicionAdmisionPorCPSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetCentrosImposicionAdmisionPorCP\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetCentrosImposicionAdmisionPorCPSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetCentrosImposicionAdmisionPorCPResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetHtmlDeEtiquetasPorOrdenOrNumeroEnvio\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadoraSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadora\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadoraSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadoraResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetDatosDeEtiquetasPorOrdenOrNumeroEnvioSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetDatosDeEtiquetasPorOrdenOrNumeroEnvio\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetDatosDeEtiquetasPorOrdenOrNumeroEnvioSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetDatosDeEtiquetasPorOrdenOrNumeroEnvioResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvio\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadoraSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadora\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadoraSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadoraResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetPdfDeEtiquetasPorOrdenOrNumeroEnvioSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetPdfDeEtiquetasPorOrdenOrNumeroEnvio\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetPdfDeEtiquetasPorOrdenOrNumeroEnvioSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:GetPdfDeEtiquetasPorOrdenOrNumeroEnvioResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"List_EnviosHttpGetIn\">\r\n
+        \   <wsdl:part name=\"CUIT\" type=\"s:string\" />\r\n    <wsdl:part name=\"FechaDesde\"
+        type=\"s:string\" />\r\n    <wsdl:part name=\"FechaHasta\" type=\"s:string\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"List_EnviosHttpGetOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"Tracking_PiezaHttpGetIn\">\r\n    <wsdl:part name=\"NroDocumentoCliente\"
+        type=\"s:string\" />\r\n    <wsdl:part name=\"CUIT\" type=\"s:string\" />\r\n
+        \   <wsdl:part name=\"Pieza\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"Tracking_PiezaHttpGetOut\">\r\n    <wsdl:part name=\"Body\"
+        element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"Tracking_OrdenRetiroHttpGetIn\">\r\n
+        \   <wsdl:part name=\"CUIT\" type=\"s:string\" />\r\n    <wsdl:part name=\"OrdenRetiro\"
+        type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"Tracking_OrdenRetiroHttpGetOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"Tarifar_Envio_CorporativoHttpGetIn\">\r\n    <wsdl:part
+        name=\"PesoTotal\" type=\"s:string\" />\r\n    <wsdl:part name=\"VolumenTotal\"
+        type=\"s:string\" />\r\n    <wsdl:part name=\"CodigoPostalOrigen\" type=\"s:string\"
+        />\r\n    <wsdl:part name=\"CodigoPostalDestino\" type=\"s:string\" />\r\n
+        \   <wsdl:part name=\"CantidadPaquetes\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"Cuit\" type=\"s:string\" />\r\n    <wsdl:part name=\"Operativa\" type=\"s:string\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"Tarifar_Envio_CorporativoHttpGetOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"AnularOrdenGeneradaHttpGetIn\">\r\n    <wsdl:part name=\"usuario\"
+        type=\"s:string\" />\r\n    <wsdl:part name=\"password\" type=\"s:string\"
+        />\r\n    <wsdl:part name=\"nroOrden\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"AnularOrdenGeneradaHttpGetOut\">\r\n    <wsdl:part
+        name=\"Body\" element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GenerarConsolidacionDeOrdenesDeRetiroHttpGetIn\">\r\n    <wsdl:part
+        name=\"usr\" type=\"s:string\" />\r\n    <wsdl:part name=\"psw\" type=\"s:string\"
+        />\r\n    <wsdl:part name=\"ordenesDeRetiro\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GenerarConsolidacionDeOrdenesDeRetiroHttpGetOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetEnviosUltimoEstadoHttpGetIn\">\r\n    <wsdl:part
+        name=\"cuit\" type=\"s:string\" />\r\n    <wsdl:part name=\"operativas\" type=\"s1:StringArray\"
+        />\r\n    <wsdl:part name=\"fechaDesde\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"fechaHasta\" type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetEnviosUltimoEstadoHttpGetOut\">\r\n    <wsdl:part name=\"Body\"
+        element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GenerateQrByOrdenDeRetiroHttpGetIn\">\r\n
+        \   <wsdl:part name=\"usr\" type=\"s:string\" />\r\n    <wsdl:part name=\"psw\"
+        type=\"s:string\" />\r\n    <wsdl:part name=\"idOrdenDeRetiro\" type=\"s:string\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GenerateQrByOrdenDeRetiroHttpGetOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GenerateQRParaPaquetesHttpGetIn\">\r\n    <wsdl:part
+        name=\"usr\" type=\"s:string\" />\r\n    <wsdl:part name=\"psw\" type=\"s:string\"
+        />\r\n    <wsdl:part name=\"numeroDeEnvio\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"idpaquete\" type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GenerateQRParaPaquetesHttpGetOut\">\r\n    <wsdl:part name=\"Body\"
+        element=\"tns:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GenerateListQrPorEnvioHttpGetIn\">\r\n
+        \   <wsdl:part name=\"usr\" type=\"s:string\" />\r\n    <wsdl:part name=\"psw\"
+        type=\"s:string\" />\r\n    <wsdl:part name=\"numeroDeEnvio\" type=\"s:string\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GenerateListQrPorEnvioHttpGetOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:ArrayOfString\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"IngresoORHttpGetIn\">\r\n    <wsdl:part name=\"usr\"
+        type=\"s:string\" />\r\n    <wsdl:part name=\"psw\" type=\"s:string\" />\r\n
+        \   <wsdl:part name=\"XML_Retiro\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"ConfirmarRetiro\" type=\"s:string\" />\r\n    <wsdl:part name=\"DiasRetiro\"
+        type=\"s:string\" />\r\n    <wsdl:part name=\"FranjaHoraria\" type=\"s:string\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"IngresoORHttpGetOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetCentroCostoPorOperativaHttpGetIn\">\r\n    <wsdl:part
+        name=\"CUIT\" type=\"s:string\" />\r\n    <wsdl:part name=\"Operativa\" type=\"s:string\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetCentroCostoPorOperativaHttpGetOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetCentrosImposicionHttpGetIn\" />\r\n  <wsdl:message
+        name=\"GetCentrosImposicionHttpGetOut\">\r\n    <wsdl:part name=\"Body\" element=\"tns:DataSet\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetELockerOCAHttpGetIn\"
+        />\r\n  <wsdl:message name=\"GetELockerOCAHttpGetOut\">\r\n    <wsdl:part
+        name=\"Body\" element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetCentrosImposicionAdmisionHttpGetIn\" />\r\n  <wsdl:message name=\"GetCentrosImposicionAdmisionHttpGetOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetServiciosDeCentrosImposicionHttpGetIn\" />\r\n  <wsdl:message
+        name=\"GetServiciosDeCentrosImposicionHttpGetOut\">\r\n    <wsdl:part name=\"Body\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"TrackingEnvio_EstadoActualHttpGetIn\">\r\n
+        \   <wsdl:part name=\"numeroEnvio\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"TrackingEnvio_EstadoActualHttpGetOut\">\r\n    <wsdl:part
+        name=\"Body\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetProvinciasHttpGetIn\"
+        />\r\n  <wsdl:message name=\"GetProvinciasHttpGetOut\">\r\n    <wsdl:part
+        name=\"Body\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetLocalidadesByProvinciaHttpGetIn\">\r\n
+        \   <wsdl:part name=\"idProvincia\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetLocalidadesByProvinciaHttpGetOut\">\r\n    <wsdl:part
+        name=\"Body\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetServiciosDeCentrosImposicion_xProvinciaHttpGetIn\">\r\n
+        \   <wsdl:part name=\"provinciaID\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"localidad\" type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetServiciosDeCentrosImposicion_xProvinciaHttpGetOut\">\r\n    <wsdl:part
+        name=\"Body\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetCentrosImposicionPorCPHttpGetIn\">\r\n
+        \   <wsdl:part name=\"CodigoPostal\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetCentrosImposicionPorCPHttpGetOut\">\r\n    <wsdl:part
+        name=\"Body\" element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetCentrosImposicionAdmisionPorCPHttpGetIn\">\r\n    <wsdl:part name=\"CodigoPostal\"
+        type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetCentrosImposicionAdmisionPorCPHttpGetOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioHttpGetIn\">\r\n
+        \   <wsdl:part name=\"idOrdenRetiro\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"nroEnvio\" type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioHttpGetOut\">\r\n    <wsdl:part
+        name=\"Body\" element=\"tns:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadoraHttpGetIn\">\r\n
+        \   <wsdl:part name=\"idOrdenRetiro\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"nroEnvio\" type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadoraHttpGetOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetDatosDeEtiquetasPorOrdenOrNumeroEnvioHttpGetIn\">\r\n
+        \   <wsdl:part name=\"idOrdenRetiro\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"nroEnvio\" type=\"s:string\" />\r\n    <wsdl:part name=\"isLocker\"
+        type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetDatosDeEtiquetasPorOrdenOrNumeroEnvioHttpGetOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:ArrayOfEtiqueta\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioHttpGetIn\">\r\n
+        \   <wsdl:part name=\"idOrdenRetiro\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"nroEnvio\" type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioHttpGetOut\">\r\n    <wsdl:part
+        name=\"Body\" element=\"tns:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadoraHttpGetIn\">\r\n
+        \   <wsdl:part name=\"idOrdenRetiro\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"nroEnvio\" type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadoraHttpGetOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetPdfDeEtiquetasPorOrdenOrNumeroEnvioHttpGetIn\">\r\n
+        \   <wsdl:part name=\"idOrdenRetiro\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"nroEnvio\" type=\"s:string\" />\r\n    <wsdl:part name=\"logisticaInversa\"
+        type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetPdfDeEtiquetasPorOrdenOrNumeroEnvioHttpGetOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"List_EnviosHttpPostIn\">\r\n    <wsdl:part name=\"CUIT\"
+        type=\"s:string\" />\r\n    <wsdl:part name=\"FechaDesde\" type=\"s:string\"
+        />\r\n    <wsdl:part name=\"FechaHasta\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"List_EnviosHttpPostOut\">\r\n    <wsdl:part name=\"Body\"
+        element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"Tracking_PiezaHttpPostIn\">\r\n
+        \   <wsdl:part name=\"NroDocumentoCliente\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"CUIT\" type=\"s:string\" />\r\n    <wsdl:part name=\"Pieza\" type=\"s:string\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"Tracking_PiezaHttpPostOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"Tracking_OrdenRetiroHttpPostIn\">\r\n    <wsdl:part
+        name=\"CUIT\" type=\"s:string\" />\r\n    <wsdl:part name=\"OrdenRetiro\"
+        type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"Tracking_OrdenRetiroHttpPostOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"Tarifar_Envio_CorporativoHttpPostIn\">\r\n    <wsdl:part
+        name=\"PesoTotal\" type=\"s:string\" />\r\n    <wsdl:part name=\"VolumenTotal\"
+        type=\"s:string\" />\r\n    <wsdl:part name=\"CodigoPostalOrigen\" type=\"s:string\"
+        />\r\n    <wsdl:part name=\"CodigoPostalDestino\" type=\"s:string\" />\r\n
+        \   <wsdl:part name=\"CantidadPaquetes\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"Cuit\" type=\"s:string\" />\r\n    <wsdl:part name=\"Operativa\" type=\"s:string\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"Tarifar_Envio_CorporativoHttpPostOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"AnularOrdenGeneradaHttpPostIn\">\r\n    <wsdl:part
+        name=\"usuario\" type=\"s:string\" />\r\n    <wsdl:part name=\"password\"
+        type=\"s:string\" />\r\n    <wsdl:part name=\"nroOrden\" type=\"s:string\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"AnularOrdenGeneradaHttpPostOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GenerarConsolidacionDeOrdenesDeRetiroHttpPostIn\">\r\n
+        \   <wsdl:part name=\"usr\" type=\"s:string\" />\r\n    <wsdl:part name=\"psw\"
+        type=\"s:string\" />\r\n    <wsdl:part name=\"ordenesDeRetiro\" type=\"s:string\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GenerarConsolidacionDeOrdenesDeRetiroHttpPostOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetEnviosUltimoEstadoHttpPostIn\">\r\n    <wsdl:part
+        name=\"cuit\" type=\"s:string\" />\r\n    <wsdl:part name=\"operativas\" type=\"s1:StringArray\"
+        />\r\n    <wsdl:part name=\"fechaDesde\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"fechaHasta\" type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetEnviosUltimoEstadoHttpPostOut\">\r\n    <wsdl:part name=\"Body\"
+        element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GenerateQrByOrdenDeRetiroHttpPostIn\">\r\n
+        \   <wsdl:part name=\"usr\" type=\"s:string\" />\r\n    <wsdl:part name=\"psw\"
+        type=\"s:string\" />\r\n    <wsdl:part name=\"idOrdenDeRetiro\" type=\"s:string\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GenerateQrByOrdenDeRetiroHttpPostOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GenerateQRParaPaquetesHttpPostIn\">\r\n    <wsdl:part
+        name=\"usr\" type=\"s:string\" />\r\n    <wsdl:part name=\"psw\" type=\"s:string\"
+        />\r\n    <wsdl:part name=\"numeroDeEnvio\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"idpaquete\" type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GenerateQRParaPaquetesHttpPostOut\">\r\n    <wsdl:part name=\"Body\"
+        element=\"tns:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GenerateListQrPorEnvioHttpPostIn\">\r\n
+        \   <wsdl:part name=\"usr\" type=\"s:string\" />\r\n    <wsdl:part name=\"psw\"
+        type=\"s:string\" />\r\n    <wsdl:part name=\"numeroDeEnvio\" type=\"s:string\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GenerateListQrPorEnvioHttpPostOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:ArrayOfString\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"IngresoORHttpPostIn\">\r\n    <wsdl:part name=\"usr\"
+        type=\"s:string\" />\r\n    <wsdl:part name=\"psw\" type=\"s:string\" />\r\n
+        \   <wsdl:part name=\"XML_Retiro\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"ConfirmarRetiro\" type=\"s:string\" />\r\n    <wsdl:part name=\"DiasRetiro\"
+        type=\"s:string\" />\r\n    <wsdl:part name=\"FranjaHoraria\" type=\"s:string\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"IngresoORHttpPostOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetCentroCostoPorOperativaHttpPostIn\">\r\n    <wsdl:part
+        name=\"CUIT\" type=\"s:string\" />\r\n    <wsdl:part name=\"Operativa\" type=\"s:string\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetCentroCostoPorOperativaHttpPostOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetCentrosImposicionHttpPostIn\" />\r\n  <wsdl:message
+        name=\"GetCentrosImposicionHttpPostOut\">\r\n    <wsdl:part name=\"Body\"
+        element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetELockerOCAHttpPostIn\"
+        />\r\n  <wsdl:message name=\"GetELockerOCAHttpPostOut\">\r\n    <wsdl:part
+        name=\"Body\" element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetCentrosImposicionAdmisionHttpPostIn\" />\r\n  <wsdl:message name=\"GetCentrosImposicionAdmisionHttpPostOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetServiciosDeCentrosImposicionHttpPostIn\" />\r\n
+        \ <wsdl:message name=\"GetServiciosDeCentrosImposicionHttpPostOut\">\r\n    <wsdl:part
+        name=\"Body\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"TrackingEnvio_EstadoActualHttpPostIn\">\r\n
+        \   <wsdl:part name=\"numeroEnvio\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"TrackingEnvio_EstadoActualHttpPostOut\">\r\n    <wsdl:part
+        name=\"Body\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetProvinciasHttpPostIn\"
+        />\r\n  <wsdl:message name=\"GetProvinciasHttpPostOut\">\r\n    <wsdl:part
+        name=\"Body\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetLocalidadesByProvinciaHttpPostIn\">\r\n
+        \   <wsdl:part name=\"idProvincia\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetLocalidadesByProvinciaHttpPostOut\">\r\n    <wsdl:part
+        name=\"Body\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetServiciosDeCentrosImposicion_xProvinciaHttpPostIn\">\r\n
+        \   <wsdl:part name=\"provinciaID\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"localidad\" type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetServiciosDeCentrosImposicion_xProvinciaHttpPostOut\">\r\n    <wsdl:part
+        name=\"Body\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetCentrosImposicionPorCPHttpPostIn\">\r\n
+        \   <wsdl:part name=\"CodigoPostal\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetCentrosImposicionPorCPHttpPostOut\">\r\n    <wsdl:part
+        name=\"Body\" element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetCentrosImposicionAdmisionPorCPHttpPostIn\">\r\n    <wsdl:part name=\"CodigoPostal\"
+        type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetCentrosImposicionAdmisionPorCPHttpPostOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:DataSet\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioHttpPostIn\">\r\n
+        \   <wsdl:part name=\"idOrdenRetiro\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"nroEnvio\" type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioHttpPostOut\">\r\n    <wsdl:part
+        name=\"Body\" element=\"tns:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadoraHttpPostIn\">\r\n
+        \   <wsdl:part name=\"idOrdenRetiro\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"nroEnvio\" type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadoraHttpPostOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetDatosDeEtiquetasPorOrdenOrNumeroEnvioHttpPostIn\">\r\n
+        \   <wsdl:part name=\"idOrdenRetiro\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"nroEnvio\" type=\"s:string\" />\r\n    <wsdl:part name=\"isLocker\"
+        type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetDatosDeEtiquetasPorOrdenOrNumeroEnvioHttpPostOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:ArrayOfEtiqueta\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioHttpPostIn\">\r\n
+        \   <wsdl:part name=\"idOrdenRetiro\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"nroEnvio\" type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioHttpPostOut\">\r\n    <wsdl:part
+        name=\"Body\" element=\"tns:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadoraHttpPostIn\">\r\n
+        \   <wsdl:part name=\"idOrdenRetiro\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"nroEnvio\" type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadoraHttpPostOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"GetPdfDeEtiquetasPorOrdenOrNumeroEnvioHttpPostIn\">\r\n
+        \   <wsdl:part name=\"idOrdenRetiro\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"nroEnvio\" type=\"s:string\" />\r\n    <wsdl:part name=\"logisticaInversa\"
+        type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"GetPdfDeEtiquetasPorOrdenOrNumeroEnvioHttpPostOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:portType name=\"Oep_TrackingSoap\">\r\n    <wsdl:operation name=\"List_Envios\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Dado
+        el CUIT del cliente con un rango de fechas se devuelve una lista con todos
+        los Envíos realizados en dicho período</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:List_EnviosSoapIn\" />\r\n      <wsdl:output message=\"tns:List_EnviosSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"Tracking_Pieza\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Dado
+        un envío se devuelven todos los eventos</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:Tracking_PiezaSoapIn\" />\r\n      <wsdl:output message=\"tns:Tracking_PiezaSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"Tracking_OrdenRetiro\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Dado
+        un nro. de Orden de Retiro, devuelve todas sus guías</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:Tracking_OrdenRetiroSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:Tracking_OrdenRetiroSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"Tarifar_Envio_Corporativo\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Tarifar un Envío Corporativo</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:Tarifar_Envio_CorporativoSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:Tarifar_Envio_CorporativoSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"AnularOrdenGenerada\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Anulación de Orden de Retiro
+        u Orden de Admisión</wsdl:documentation>\r\n      <wsdl:input message=\"tns:AnularOrdenGeneradaSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:AnularOrdenGeneradaSoapOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GenerarConsolidacionDeOrdenesDeRetiro\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Genera
+        la Consolidacion de las Ordenes de Retiro, Devuelve el Id De Consolidadcion
+        y la Cantidad de Ordenes Igresadas</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:GenerarConsolidacionDeOrdenesDeRetiroSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:GenerarConsolidacionDeOrdenesDeRetiroSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetEnviosUltimoEstado\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Detalle envíos entre fechas</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetEnviosUltimoEstadoSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:GetEnviosUltimoEstadoSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GenerateQrByOrdenDeRetiro\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Generacion del String base64
+        de QR por idOrdenDeRetiro</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GenerateQrByOrdenDeRetiroSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:GenerateQrByOrdenDeRetiroSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GenerateQRParaPaquetes\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Generacion
+        del String base64 QR por numeroDeEnvio y idpaquete</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GenerateQRParaPaquetesSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:GenerateQRParaPaquetesSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GenerateListQrPorEnvio\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Generacion del String base64
+        QR por numeroDeEnvio</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GenerateListQrPorEnvioSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:GenerateListQrPorEnvioSoapOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"IngresoOR\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Ingreso de archivo de OR</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:IngresoORSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:IngresoORSoapOut\" />\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetCentroCostoPorOperativa\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        los Centros de Costo del cliente habilitas para ser utilizadon con la operativa
+        indicada</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GetCentroCostoPorOperativaSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:GetCentroCostoPorOperativaSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetCentrosImposicion\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        todos los Centros de Imposición existentes para entrega de paquetes.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetCentrosImposicionSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:GetCentrosImposicionSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetELockerOCA\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        los eLocker - OCA disponibles.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GetELockerOCASoapIn\"
+        />\r\n      <wsdl:output message=\"tns:GetELockerOCASoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetCentrosImposicionAdmision\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve todos los Centros
+        de Imposición existentes para admisión de paquetes.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetCentrosImposicionAdmisionSoapIn\" />\r\n
+        \     <wsdl:output message=\"tns:GetCentrosImposicionAdmisionSoapOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetServiciosDeCentrosImposicion\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        todos los servicios por cada Centros de Imposición existentes.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetServiciosDeCentrosImposicionSoapIn\" />\r\n
+        \     <wsdl:output message=\"tns:GetServiciosDeCentrosImposicionSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"TrackingEnvio_EstadoActual\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        los datos del envío pero con el estado actual y la posición global de la sucursal</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:TrackingEnvio_EstadoActualSoapIn\" />\r\n
+        \     <wsdl:output message=\"tns:TrackingEnvio_EstadoActualSoapOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetProvincias\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve las provicincias.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetProvinciasSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:GetProvinciasSoapOut\" />\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetLocalidadesByProvincia\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        todas las localidades de la provincia especificada. &lt;b style='color:red'&gt;(idProvincia
+        es requerido)&lt;/b&gt;</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GetLocalidadesByProvinciaSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:GetLocalidadesByProvinciaSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetServiciosDeCentrosImposicion_xProvincia\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        todos los servicios por cada Centros de Imposición existentes por provincia.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetServiciosDeCentrosImposicion_xProvinciaSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:GetServiciosDeCentrosImposicion_xProvinciaSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetCentrosImposicionPorCP\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        todos los Centros de Imposición existentes cercanos al CP</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetCentrosImposicionPorCPSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:GetCentrosImposicionPorCPSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetCentrosImposicionAdmisionPorCP\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve todos los Centros
+        de Imposición existentes cercanos al CP para admisión</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetCentrosImposicionAdmisionPorCPSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:GetCentrosImposicionAdmisionPorCPSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Obtiene
+        el código fuente de las etiquetas pertenecientes a la orden de retiro. (&lt;b
+        style='color:red'&gt;idOrdenRetiro es requerido, nroEnvio es opcional, paraEtiquetadora
+        es opcional&lt;/b&gt;)</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadora\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Obtiene
+        el código fuente de las etiquetas pertenecientes a la orden de retiro con
+        formato para Etiquetadora. (&lt;b style='color:red'&gt;idOrdenRetiro es requerido,
+        nroEnvio es opcional, paraEtiquetadora es opcional&lt;/b&gt;)</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadoraSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadoraSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetDatosDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Obtiene
+        el código fuente de las etiquetas pertenecientes a la orden de retiro. (&lt;b
+        style='color:red'&gt;idOrdenRetiro es requerido, nroEnvio es opcional, isLocker
+        es requerido&lt;/b&gt;)</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GetDatosDeEtiquetasPorOrdenOrNumeroEnvioSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:GetDatosDeEtiquetasPorOrdenOrNumeroEnvioSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvio\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Obtiene
+        el código fuente de las etiquetas pertenecientes a la orden de retiro con
+        operativa especial. (&lt;b style='color:red'&gt;idOrdenRetiro es requerido,
+        nroEnvio es opcional, paraEtiquetadora es opcional.&lt;/b&gt;)</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadora\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Obtiene
+        el código fuente de las etiquetas pertenecientes a la orden de retiro con
+        operativa especial con formato para Etiquetadoras. (&lt;b style='color:red'&gt;idOrdenRetiro
+        es requerido, nroEnvio es opcional, paraEtiquetadora es opcional.&lt;/b&gt;)</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadoraSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadoraSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetPdfDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Obtiene
+        un PDF de las etiquetas pertenecientes a la orden de retiro. (&lt;b style='color:red'&gt;idOrdenRetiro
+        es requerido, nroEnvio es opcional.&lt;/b&gt;)</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:GetPdfDeEtiquetasPorOrdenOrNumeroEnvioSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:GetPdfDeEtiquetasPorOrdenOrNumeroEnvioSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \ </wsdl:portType>\r\n  <wsdl:portType name=\"Oep_TrackingHttpGet\">\r\n    <wsdl:operation
+        name=\"List_Envios\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Dado
+        el CUIT del cliente con un rango de fechas se devuelve una lista con todos
+        los Envíos realizados en dicho período</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:List_EnviosHttpGetIn\" />\r\n      <wsdl:output message=\"tns:List_EnviosHttpGetOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"Tracking_Pieza\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Dado
+        un envío se devuelven todos los eventos</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:Tracking_PiezaHttpGetIn\" />\r\n      <wsdl:output message=\"tns:Tracking_PiezaHttpGetOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"Tracking_OrdenRetiro\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Dado
+        un nro. de Orden de Retiro, devuelve todas sus guías</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:Tracking_OrdenRetiroHttpGetIn\" />\r\n      <wsdl:output
+        message=\"tns:Tracking_OrdenRetiroHttpGetOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"Tarifar_Envio_Corporativo\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Tarifar un Envío Corporativo</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:Tarifar_Envio_CorporativoHttpGetIn\" />\r\n
+        \     <wsdl:output message=\"tns:Tarifar_Envio_CorporativoHttpGetOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"AnularOrdenGenerada\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Anulación
+        de Orden de Retiro u Orden de Admisión</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:AnularOrdenGeneradaHttpGetIn\" />\r\n      <wsdl:output message=\"tns:AnularOrdenGeneradaHttpGetOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GenerarConsolidacionDeOrdenesDeRetiro\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Genera
+        la Consolidacion de las Ordenes de Retiro, Devuelve el Id De Consolidadcion
+        y la Cantidad de Ordenes Igresadas</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:GenerarConsolidacionDeOrdenesDeRetiroHttpGetIn\" />\r\n      <wsdl:output
+        message=\"tns:GenerarConsolidacionDeOrdenesDeRetiroHttpGetOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetEnviosUltimoEstado\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Detalle envíos entre fechas</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetEnviosUltimoEstadoHttpGetIn\" />\r\n      <wsdl:output
+        message=\"tns:GetEnviosUltimoEstadoHttpGetOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GenerateQrByOrdenDeRetiro\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Generacion del String base64
+        de QR por idOrdenDeRetiro</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GenerateQrByOrdenDeRetiroHttpGetIn\"
+        />\r\n      <wsdl:output message=\"tns:GenerateQrByOrdenDeRetiroHttpGetOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GenerateQRParaPaquetes\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Generacion
+        del String base64 QR por numeroDeEnvio y idpaquete</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GenerateQRParaPaquetesHttpGetIn\" />\r\n      <wsdl:output
+        message=\"tns:GenerateQRParaPaquetesHttpGetOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GenerateListQrPorEnvio\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Generacion del String base64
+        QR por numeroDeEnvio</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GenerateListQrPorEnvioHttpGetIn\"
+        />\r\n      <wsdl:output message=\"tns:GenerateListQrPorEnvioHttpGetOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"IngresoOR\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Ingreso
+        de archivo de OR</wsdl:documentation>\r\n      <wsdl:input message=\"tns:IngresoORHttpGetIn\"
+        />\r\n      <wsdl:output message=\"tns:IngresoORHttpGetOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetCentroCostoPorOperativa\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve los Centros de Costo
+        del cliente habilitas para ser utilizadon con la operativa indicada</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetCentroCostoPorOperativaHttpGetIn\" />\r\n
+        \     <wsdl:output message=\"tns:GetCentroCostoPorOperativaHttpGetOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetCentrosImposicion\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        todos los Centros de Imposición existentes para entrega de paquetes.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetCentrosImposicionHttpGetIn\" />\r\n      <wsdl:output
+        message=\"tns:GetCentrosImposicionHttpGetOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetELockerOCA\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        los eLocker - OCA disponibles.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GetELockerOCAHttpGetIn\"
+        />\r\n      <wsdl:output message=\"tns:GetELockerOCAHttpGetOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetCentrosImposicionAdmision\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve todos los Centros
+        de Imposición existentes para admisión de paquetes.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetCentrosImposicionAdmisionHttpGetIn\" />\r\n
+        \     <wsdl:output message=\"tns:GetCentrosImposicionAdmisionHttpGetOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetServiciosDeCentrosImposicion\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        todos los servicios por cada Centros de Imposición existentes.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetServiciosDeCentrosImposicionHttpGetIn\"
+        />\r\n      <wsdl:output message=\"tns:GetServiciosDeCentrosImposicionHttpGetOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"TrackingEnvio_EstadoActual\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        los datos del envío pero con el estado actual y la posición global de la sucursal</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:TrackingEnvio_EstadoActualHttpGetIn\" />\r\n
+        \     <wsdl:output message=\"tns:TrackingEnvio_EstadoActualHttpGetOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetProvincias\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve las provicincias.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetProvinciasHttpGetIn\" />\r\n      <wsdl:output
+        message=\"tns:GetProvinciasHttpGetOut\" />\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetLocalidadesByProvincia\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        todas las localidades de la provincia especificada. &lt;b style='color:red'&gt;(idProvincia
+        es requerido)&lt;/b&gt;</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GetLocalidadesByProvinciaHttpGetIn\"
+        />\r\n      <wsdl:output message=\"tns:GetLocalidadesByProvinciaHttpGetOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetServiciosDeCentrosImposicion_xProvincia\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        todos los servicios por cada Centros de Imposición existentes por provincia.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetServiciosDeCentrosImposicion_xProvinciaHttpGetIn\"
+        />\r\n      <wsdl:output message=\"tns:GetServiciosDeCentrosImposicion_xProvinciaHttpGetOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetCentrosImposicionPorCP\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        todos los Centros de Imposición existentes cercanos al CP</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetCentrosImposicionPorCPHttpGetIn\" />\r\n
+        \     <wsdl:output message=\"tns:GetCentrosImposicionPorCPHttpGetOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetCentrosImposicionAdmisionPorCP\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        todos los Centros de Imposición existentes cercanos al CP para admisión</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetCentrosImposicionAdmisionPorCPHttpGetIn\"
+        />\r\n      <wsdl:output message=\"tns:GetCentrosImposicionAdmisionPorCPHttpGetOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Obtiene
+        el código fuente de las etiquetas pertenecientes a la orden de retiro. (&lt;b
+        style='color:red'&gt;idOrdenRetiro es requerido, nroEnvio es opcional, paraEtiquetadora
+        es opcional&lt;/b&gt;)</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioHttpGetIn\"
+        />\r\n      <wsdl:output message=\"tns:GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioHttpGetOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadora\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Obtiene
+        el código fuente de las etiquetas pertenecientes a la orden de retiro con
+        formato para Etiquetadora. (&lt;b style='color:red'&gt;idOrdenRetiro es requerido,
+        nroEnvio es opcional, paraEtiquetadora es opcional&lt;/b&gt;)</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadoraHttpGetIn\"
+        />\r\n      <wsdl:output message=\"tns:GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadoraHttpGetOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetDatosDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Obtiene
+        el código fuente de las etiquetas pertenecientes a la orden de retiro. (&lt;b
+        style='color:red'&gt;idOrdenRetiro es requerido, nroEnvio es opcional, isLocker
+        es requerido&lt;/b&gt;)</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GetDatosDeEtiquetasPorOrdenOrNumeroEnvioHttpGetIn\"
+        />\r\n      <wsdl:output message=\"tns:GetDatosDeEtiquetasPorOrdenOrNumeroEnvioHttpGetOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvio\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Obtiene
+        el código fuente de las etiquetas pertenecientes a la orden de retiro con
+        operativa especial. (&lt;b style='color:red'&gt;idOrdenRetiro es requerido,
+        nroEnvio es opcional, paraEtiquetadora es opcional.&lt;/b&gt;)</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioHttpGetIn\"
+        />\r\n      <wsdl:output message=\"tns:GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioHttpGetOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadora\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Obtiene
+        el código fuente de las etiquetas pertenecientes a la orden de retiro con
+        operativa especial con formato para Etiquetadoras. (&lt;b style='color:red'&gt;idOrdenRetiro
+        es requerido, nroEnvio es opcional, paraEtiquetadora es opcional.&lt;/b&gt;)</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadoraHttpGetIn\"
+        />\r\n      <wsdl:output message=\"tns:GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadoraHttpGetOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetPdfDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Obtiene
+        un PDF de las etiquetas pertenecientes a la orden de retiro. (&lt;b style='color:red'&gt;idOrdenRetiro
+        es requerido, nroEnvio es opcional.&lt;/b&gt;)</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:GetPdfDeEtiquetasPorOrdenOrNumeroEnvioHttpGetIn\" />\r\n      <wsdl:output
+        message=\"tns:GetPdfDeEtiquetasPorOrdenOrNumeroEnvioHttpGetOut\" />\r\n    </wsdl:operation>\r\n
+        \ </wsdl:portType>\r\n  <wsdl:portType name=\"Oep_TrackingHttpPost\">\r\n
+        \   <wsdl:operation name=\"List_Envios\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Dado
+        el CUIT del cliente con un rango de fechas se devuelve una lista con todos
+        los Envíos realizados en dicho período</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:List_EnviosHttpPostIn\" />\r\n      <wsdl:output message=\"tns:List_EnviosHttpPostOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"Tracking_Pieza\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Dado
+        un envío se devuelven todos los eventos</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:Tracking_PiezaHttpPostIn\" />\r\n      <wsdl:output message=\"tns:Tracking_PiezaHttpPostOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"Tracking_OrdenRetiro\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Dado
+        un nro. de Orden de Retiro, devuelve todas sus guías</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:Tracking_OrdenRetiroHttpPostIn\" />\r\n      <wsdl:output
+        message=\"tns:Tracking_OrdenRetiroHttpPostOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"Tarifar_Envio_Corporativo\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Tarifar un Envío Corporativo</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:Tarifar_Envio_CorporativoHttpPostIn\" />\r\n
+        \     <wsdl:output message=\"tns:Tarifar_Envio_CorporativoHttpPostOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"AnularOrdenGenerada\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Anulación
+        de Orden de Retiro u Orden de Admisión</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:AnularOrdenGeneradaHttpPostIn\" />\r\n      <wsdl:output message=\"tns:AnularOrdenGeneradaHttpPostOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GenerarConsolidacionDeOrdenesDeRetiro\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Genera
+        la Consolidacion de las Ordenes de Retiro, Devuelve el Id De Consolidadcion
+        y la Cantidad de Ordenes Igresadas</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:GenerarConsolidacionDeOrdenesDeRetiroHttpPostIn\" />\r\n      <wsdl:output
+        message=\"tns:GenerarConsolidacionDeOrdenesDeRetiroHttpPostOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetEnviosUltimoEstado\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Detalle envíos entre fechas</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetEnviosUltimoEstadoHttpPostIn\" />\r\n      <wsdl:output
+        message=\"tns:GetEnviosUltimoEstadoHttpPostOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GenerateQrByOrdenDeRetiro\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Generacion del String base64
+        de QR por idOrdenDeRetiro</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GenerateQrByOrdenDeRetiroHttpPostIn\"
+        />\r\n      <wsdl:output message=\"tns:GenerateQrByOrdenDeRetiroHttpPostOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GenerateQRParaPaquetes\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Generacion
+        del String base64 QR por numeroDeEnvio y idpaquete</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GenerateQRParaPaquetesHttpPostIn\" />\r\n
+        \     <wsdl:output message=\"tns:GenerateQRParaPaquetesHttpPostOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GenerateListQrPorEnvio\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Generacion
+        del String base64 QR por numeroDeEnvio</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:GenerateListQrPorEnvioHttpPostIn\" />\r\n      <wsdl:output
+        message=\"tns:GenerateListQrPorEnvioHttpPostOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"IngresoOR\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Ingreso
+        de archivo de OR</wsdl:documentation>\r\n      <wsdl:input message=\"tns:IngresoORHttpPostIn\"
+        />\r\n      <wsdl:output message=\"tns:IngresoORHttpPostOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetCentroCostoPorOperativa\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve los Centros de Costo
+        del cliente habilitas para ser utilizadon con la operativa indicada</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetCentroCostoPorOperativaHttpPostIn\" />\r\n
+        \     <wsdl:output message=\"tns:GetCentroCostoPorOperativaHttpPostOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetCentrosImposicion\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        todos los Centros de Imposición existentes para entrega de paquetes.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetCentrosImposicionHttpPostIn\" />\r\n      <wsdl:output
+        message=\"tns:GetCentrosImposicionHttpPostOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetELockerOCA\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        los eLocker - OCA disponibles.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GetELockerOCAHttpPostIn\"
+        />\r\n      <wsdl:output message=\"tns:GetELockerOCAHttpPostOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetCentrosImposicionAdmision\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve todos los Centros
+        de Imposición existentes para admisión de paquetes.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetCentrosImposicionAdmisionHttpPostIn\" />\r\n
+        \     <wsdl:output message=\"tns:GetCentrosImposicionAdmisionHttpPostOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetServiciosDeCentrosImposicion\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        todos los servicios por cada Centros de Imposición existentes.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetServiciosDeCentrosImposicionHttpPostIn\"
+        />\r\n      <wsdl:output message=\"tns:GetServiciosDeCentrosImposicionHttpPostOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"TrackingEnvio_EstadoActual\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        los datos del envío pero con el estado actual y la posición global de la sucursal</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:TrackingEnvio_EstadoActualHttpPostIn\" />\r\n
+        \     <wsdl:output message=\"tns:TrackingEnvio_EstadoActualHttpPostOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetProvincias\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve las provicincias.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetProvinciasHttpPostIn\" />\r\n      <wsdl:output
+        message=\"tns:GetProvinciasHttpPostOut\" />\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetLocalidadesByProvincia\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        todas las localidades de la provincia especificada. &lt;b style='color:red'&gt;(idProvincia
+        es requerido)&lt;/b&gt;</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GetLocalidadesByProvinciaHttpPostIn\"
+        />\r\n      <wsdl:output message=\"tns:GetLocalidadesByProvinciaHttpPostOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetServiciosDeCentrosImposicion_xProvincia\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        todos los servicios por cada Centros de Imposición existentes por provincia.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetServiciosDeCentrosImposicion_xProvinciaHttpPostIn\"
+        />\r\n      <wsdl:output message=\"tns:GetServiciosDeCentrosImposicion_xProvinciaHttpPostOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetCentrosImposicionPorCP\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        todos los Centros de Imposición existentes cercanos al CP</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetCentrosImposicionPorCPHttpPostIn\" />\r\n
+        \     <wsdl:output message=\"tns:GetCentrosImposicionPorCPHttpPostOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetCentrosImposicionAdmisionPorCP\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Devuelve
+        todos los Centros de Imposición existentes cercanos al CP para admisión</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetCentrosImposicionAdmisionPorCPHttpPostIn\"
+        />\r\n      <wsdl:output message=\"tns:GetCentrosImposicionAdmisionPorCPHttpPostOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Obtiene
+        el código fuente de las etiquetas pertenecientes a la orden de retiro. (&lt;b
+        style='color:red'&gt;idOrdenRetiro es requerido, nroEnvio es opcional, paraEtiquetadora
+        es opcional&lt;/b&gt;)</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioHttpPostIn\"
+        />\r\n      <wsdl:output message=\"tns:GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioHttpPostOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadora\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Obtiene
+        el código fuente de las etiquetas pertenecientes a la orden de retiro con
+        formato para Etiquetadora. (&lt;b style='color:red'&gt;idOrdenRetiro es requerido,
+        nroEnvio es opcional, paraEtiquetadora es opcional&lt;/b&gt;)</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadoraHttpPostIn\"
+        />\r\n      <wsdl:output message=\"tns:GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadoraHttpPostOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetDatosDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Obtiene
+        el código fuente de las etiquetas pertenecientes a la orden de retiro. (&lt;b
+        style='color:red'&gt;idOrdenRetiro es requerido, nroEnvio es opcional, isLocker
+        es requerido&lt;/b&gt;)</wsdl:documentation>\r\n      <wsdl:input message=\"tns:GetDatosDeEtiquetasPorOrdenOrNumeroEnvioHttpPostIn\"
+        />\r\n      <wsdl:output message=\"tns:GetDatosDeEtiquetasPorOrdenOrNumeroEnvioHttpPostOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvio\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Obtiene
+        el código fuente de las etiquetas pertenecientes a la orden de retiro con
+        operativa especial. (&lt;b style='color:red'&gt;idOrdenRetiro es requerido,
+        nroEnvio es opcional, paraEtiquetadora es opcional.&lt;/b&gt;)</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioHttpPostIn\"
+        />\r\n      <wsdl:output message=\"tns:GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioHttpPostOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadora\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Obtiene
+        el código fuente de las etiquetas pertenecientes a la orden de retiro con
+        operativa especial con formato para Etiquetadoras. (&lt;b style='color:red'&gt;idOrdenRetiro
+        es requerido, nroEnvio es opcional, paraEtiquetadora es opcional.&lt;/b&gt;)</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadoraHttpPostIn\"
+        />\r\n      <wsdl:output message=\"tns:GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadoraHttpPostOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"GetPdfDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Obtiene
+        un PDF de las etiquetas pertenecientes a la orden de retiro. (&lt;b style='color:red'&gt;idOrdenRetiro
+        es requerido, nroEnvio es opcional.&lt;/b&gt;)</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:GetPdfDeEtiquetasPorOrdenOrNumeroEnvioHttpPostIn\" />\r\n      <wsdl:output
+        message=\"tns:GetPdfDeEtiquetasPorOrdenOrNumeroEnvioHttpPostOut\" />\r\n    </wsdl:operation>\r\n
+        \ </wsdl:portType>\r\n  <wsdl:binding name=\"Oep_TrackingSoap\" type=\"tns:Oep_TrackingSoap\">\r\n
+        \   <soap:binding transport=\"http://schemas.xmlsoap.org/soap/http\" />\r\n
+        \   <wsdl:operation name=\"List_Envios\">\r\n      <soap:operation soapAction=\"#Oca_Express_Pak/List_Envios\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"Tracking_Pieza\">\r\n      <soap:operation soapAction=\"#Oca_Express_Pak/Tracking_Pieza\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"Tracking_OrdenRetiro\">\r\n      <soap:operation soapAction=\"#Oca_Express_Pak/Tracking_OrdenRetiro\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"Tarifar_Envio_Corporativo\">\r\n      <soap:operation soapAction=\"#Oca_Express_Pak/Tarifar_Envio_Corporativo\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"AnularOrdenGenerada\">\r\n      <soap:operation soapAction=\"#Oca_Express_Pak/AnularOrdenGenerada\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GenerarConsolidacionDeOrdenesDeRetiro\">\r\n      <soap:operation soapAction=\"#Oca_Express_Pak/GenerarConsolidacionDeOrdenesDeRetiro\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetEnviosUltimoEstado\">\r\n      <soap:operation soapAction=\"#Oca_Express_Pak/GetEnviosUltimoEstado\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GenerateQrByOrdenDeRetiro\">\r\n      <soap:operation soapAction=\"#Oca_Express_Pak/GenerateQrByOrdenDeRetiro\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GenerateQRParaPaquetes\">\r\n      <soap:operation soapAction=\"#Oca_Express_Pak/GenerateQRParaPaquetes\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GenerateListQrPorEnvio\">\r\n      <soap:operation soapAction=\"#Oca_Express_Pak/GenerateListQrPorEnvio\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"IngresoOR\">\r\n      <soap:operation soapAction=\"#Oca_Express_Pak/IngresoOR\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetCentroCostoPorOperativa\">\r\n      <soap:operation soapAction=\"#Oca_Express_Pak/GetCentroCostoPorOperativa\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetCentrosImposicion\">\r\n      <soap:operation soapAction=\"#Oca_Express_Pak/GetCentrosImposicion\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetELockerOCA\">\r\n      <soap:operation soapAction=\"#Oca_Express_Pak/GetELockerOCA\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetCentrosImposicionAdmision\">\r\n      <soap:operation soapAction=\"#Oca_Express_Pak/GetCentrosImposicionAdmision\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetServiciosDeCentrosImposicion\">\r\n      <soap:operation soapAction=\"#Oca_Express_Pak/GetServiciosDeCentrosImposicion\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"TrackingEnvio_EstadoActual\">\r\n      <soap:operation soapAction=\"#Oca_Express_Pak/TrackingEnvio_EstadoActual\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetProvincias\">\r\n      <soap:operation soapAction=\"#Oca_Express_Pak/GetProvincias\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetLocalidadesByProvincia\">\r\n      <soap:operation soapAction=\"#Oca_Express_Pak/GetLocalidadesByProvincia\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetServiciosDeCentrosImposicion_xProvincia\">\r\n      <soap:operation
+        soapAction=\"#Oca_Express_Pak/GetServiciosDeCentrosImposicion_xProvincia\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetCentrosImposicionPorCP\">\r\n      <soap:operation soapAction=\"#Oca_Express_Pak/GetCentrosImposicionPorCP\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetCentrosImposicionAdmisionPorCP\">\r\n      <soap:operation soapAction=\"#Oca_Express_Pak/GetCentrosImposicionAdmisionPorCP\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n      <soap:operation
+        soapAction=\"#Oca_Express_Pak/GetHtmlDeEtiquetasPorOrdenOrNumeroEnvio\" style=\"document\"
+        />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\" />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <soap:body use=\"literal\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadora\">\r\n
+        \     <soap:operation soapAction=\"#Oca_Express_Pak/GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadora\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetDatosDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n      <soap:operation
+        soapAction=\"#Oca_Express_Pak/GetDatosDeEtiquetasPorOrdenOrNumeroEnvio\" style=\"document\"
+        />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\" />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <soap:body use=\"literal\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvio\">\r\n
+        \     <soap:operation soapAction=\"#Oca_Express_Pak/GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvio\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadora\">\r\n
+        \     <soap:operation soapAction=\"#Oca_Express_Pak/GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadora\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetPdfDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n      <soap:operation
+        soapAction=\"#Oca_Express_Pak/GetPdfDeEtiquetasPorOrdenOrNumeroEnvio\" style=\"document\"
+        />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\" />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <soap:body use=\"literal\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n  </wsdl:binding>\r\n  <wsdl:binding name=\"Oep_TrackingSoap12\"
+        type=\"tns:Oep_TrackingSoap\">\r\n    <soap12:binding transport=\"http://schemas.xmlsoap.org/soap/http\"
+        />\r\n    <wsdl:operation name=\"List_Envios\">\r\n      <soap12:operation
+        soapAction=\"#Oca_Express_Pak/List_Envios\" style=\"document\" />\r\n      <wsdl:input>\r\n
+        \       <soap12:body use=\"literal\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <soap12:body use=\"literal\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"Tracking_Pieza\">\r\n      <soap12:operation soapAction=\"#Oca_Express_Pak/Tracking_Pieza\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"Tracking_OrdenRetiro\">\r\n      <soap12:operation soapAction=\"#Oca_Express_Pak/Tracking_OrdenRetiro\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"Tarifar_Envio_Corporativo\">\r\n      <soap12:operation soapAction=\"#Oca_Express_Pak/Tarifar_Envio_Corporativo\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"AnularOrdenGenerada\">\r\n      <soap12:operation soapAction=\"#Oca_Express_Pak/AnularOrdenGenerada\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GenerarConsolidacionDeOrdenesDeRetiro\">\r\n      <soap12:operation
+        soapAction=\"#Oca_Express_Pak/GenerarConsolidacionDeOrdenesDeRetiro\" style=\"document\"
+        />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\" />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <soap12:body use=\"literal\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetEnviosUltimoEstado\">\r\n
+        \     <soap12:operation soapAction=\"#Oca_Express_Pak/GetEnviosUltimoEstado\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GenerateQrByOrdenDeRetiro\">\r\n      <soap12:operation soapAction=\"#Oca_Express_Pak/GenerateQrByOrdenDeRetiro\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GenerateQRParaPaquetes\">\r\n      <soap12:operation soapAction=\"#Oca_Express_Pak/GenerateQRParaPaquetes\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GenerateListQrPorEnvio\">\r\n      <soap12:operation soapAction=\"#Oca_Express_Pak/GenerateListQrPorEnvio\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"IngresoOR\">\r\n      <soap12:operation soapAction=\"#Oca_Express_Pak/IngresoOR\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetCentroCostoPorOperativa\">\r\n      <soap12:operation soapAction=\"#Oca_Express_Pak/GetCentroCostoPorOperativa\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetCentrosImposicion\">\r\n      <soap12:operation soapAction=\"#Oca_Express_Pak/GetCentrosImposicion\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetELockerOCA\">\r\n      <soap12:operation soapAction=\"#Oca_Express_Pak/GetELockerOCA\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetCentrosImposicionAdmision\">\r\n      <soap12:operation soapAction=\"#Oca_Express_Pak/GetCentrosImposicionAdmision\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetServiciosDeCentrosImposicion\">\r\n      <soap12:operation soapAction=\"#Oca_Express_Pak/GetServiciosDeCentrosImposicion\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"TrackingEnvio_EstadoActual\">\r\n      <soap12:operation soapAction=\"#Oca_Express_Pak/TrackingEnvio_EstadoActual\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetProvincias\">\r\n      <soap12:operation soapAction=\"#Oca_Express_Pak/GetProvincias\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetLocalidadesByProvincia\">\r\n      <soap12:operation soapAction=\"#Oca_Express_Pak/GetLocalidadesByProvincia\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetServiciosDeCentrosImposicion_xProvincia\">\r\n      <soap12:operation
+        soapAction=\"#Oca_Express_Pak/GetServiciosDeCentrosImposicion_xProvincia\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetCentrosImposicionPorCP\">\r\n      <soap12:operation soapAction=\"#Oca_Express_Pak/GetCentrosImposicionPorCP\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetCentrosImposicionAdmisionPorCP\">\r\n      <soap12:operation soapAction=\"#Oca_Express_Pak/GetCentrosImposicionAdmisionPorCP\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n      <soap12:operation
+        soapAction=\"#Oca_Express_Pak/GetHtmlDeEtiquetasPorOrdenOrNumeroEnvio\" style=\"document\"
+        />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\" />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <soap12:body use=\"literal\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadora\">\r\n
+        \     <soap12:operation soapAction=\"#Oca_Express_Pak/GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadora\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetDatosDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n      <soap12:operation
+        soapAction=\"#Oca_Express_Pak/GetDatosDeEtiquetasPorOrdenOrNumeroEnvio\" style=\"document\"
+        />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\" />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <soap12:body use=\"literal\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvio\">\r\n
+        \     <soap12:operation soapAction=\"#Oca_Express_Pak/GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvio\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadora\">\r\n
+        \     <soap12:operation soapAction=\"#Oca_Express_Pak/GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadora\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetPdfDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n      <soap12:operation
+        soapAction=\"#Oca_Express_Pak/GetPdfDeEtiquetasPorOrdenOrNumeroEnvio\" style=\"document\"
+        />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\" />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <soap12:body use=\"literal\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n  </wsdl:binding>\r\n  <wsdl:binding name=\"Oep_TrackingHttpGet\"
+        type=\"tns:Oep_TrackingHttpGet\">\r\n    <http:binding verb=\"GET\" />\r\n
+        \   <wsdl:operation name=\"List_Envios\">\r\n      <http:operation location=\"/List_Envios\"
+        />\r\n      <wsdl:input>\r\n        <http:urlEncoded />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"Tracking_Pieza\">\r\n
+        \     <http:operation location=\"/Tracking_Pieza\" />\r\n      <wsdl:input>\r\n
+        \       <http:urlEncoded />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"Tracking_OrdenRetiro\">\r\n      <http:operation
+        location=\"/Tracking_OrdenRetiro\" />\r\n      <wsdl:input>\r\n        <http:urlEncoded
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"Tarifar_Envio_Corporativo\">\r\n      <http:operation location=\"/Tarifar_Envio_Corporativo\"
+        />\r\n      <wsdl:input>\r\n        <http:urlEncoded />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"AnularOrdenGenerada\">\r\n
+        \     <http:operation location=\"/AnularOrdenGenerada\" />\r\n      <wsdl:input>\r\n
+        \       <http:urlEncoded />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GenerarConsolidacionDeOrdenesDeRetiro\">\r\n      <http:operation
+        location=\"/GenerarConsolidacionDeOrdenesDeRetiro\" />\r\n      <wsdl:input>\r\n
+        \       <http:urlEncoded />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetEnviosUltimoEstado\">\r\n      <http:operation
+        location=\"/GetEnviosUltimoEstado\" />\r\n      <wsdl:input>\r\n        <http:urlEncoded
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GenerateQrByOrdenDeRetiro\">\r\n      <http:operation location=\"/GenerateQrByOrdenDeRetiro\"
+        />\r\n      <wsdl:input>\r\n        <http:urlEncoded />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GenerateQRParaPaquetes\">\r\n
+        \     <http:operation location=\"/GenerateQRParaPaquetes\" />\r\n      <wsdl:input>\r\n
+        \       <http:urlEncoded />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GenerateListQrPorEnvio\">\r\n      <http:operation
+        location=\"/GenerateListQrPorEnvio\" />\r\n      <wsdl:input>\r\n        <http:urlEncoded
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"IngresoOR\">\r\n      <http:operation location=\"/IngresoOR\" />\r\n
+        \     <wsdl:input>\r\n        <http:urlEncoded />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetCentroCostoPorOperativa\">\r\n
+        \     <http:operation location=\"/GetCentroCostoPorOperativa\" />\r\n      <wsdl:input>\r\n
+        \       <http:urlEncoded />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetCentrosImposicion\">\r\n      <http:operation
+        location=\"/GetCentrosImposicion\" />\r\n      <wsdl:input>\r\n        <http:urlEncoded
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetELockerOCA\">\r\n      <http:operation location=\"/GetELockerOCA\"
+        />\r\n      <wsdl:input>\r\n        <http:urlEncoded />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetCentrosImposicionAdmision\">\r\n
+        \     <http:operation location=\"/GetCentrosImposicionAdmision\" />\r\n      <wsdl:input>\r\n
+        \       <http:urlEncoded />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetServiciosDeCentrosImposicion\">\r\n      <http:operation
+        location=\"/GetServiciosDeCentrosImposicion\" />\r\n      <wsdl:input>\r\n
+        \       <http:urlEncoded />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <mime:content part=\"Body\" type=\"text/xml\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"TrackingEnvio_EstadoActual\">\r\n
+        \     <http:operation location=\"/TrackingEnvio_EstadoActual\" />\r\n      <wsdl:input>\r\n
+        \       <http:urlEncoded />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <mime:content part=\"Body\" type=\"text/xml\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetProvincias\">\r\n      <http:operation
+        location=\"/GetProvincias\" />\r\n      <wsdl:input>\r\n        <http:urlEncoded
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:content
+        part=\"Body\" type=\"text/xml\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetLocalidadesByProvincia\">\r\n      <http:operation
+        location=\"/GetLocalidadesByProvincia\" />\r\n      <wsdl:input>\r\n        <http:urlEncoded
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:content
+        part=\"Body\" type=\"text/xml\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"GetServiciosDeCentrosImposicion_xProvincia\">\r\n
+        \     <http:operation location=\"/GetServiciosDeCentrosImposicion_xProvincia\"
+        />\r\n      <wsdl:input>\r\n        <http:urlEncoded />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:content part=\"Body\" type=\"text/xml\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetCentrosImposicionPorCP\">\r\n      <http:operation location=\"/GetCentrosImposicionPorCP\"
+        />\r\n      <wsdl:input>\r\n        <http:urlEncoded />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetCentrosImposicionAdmisionPorCP\">\r\n
+        \     <http:operation location=\"/GetCentrosImposicionAdmisionPorCP\" />\r\n
+        \     <wsdl:input>\r\n        <http:urlEncoded />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n
+        \     <http:operation location=\"/GetHtmlDeEtiquetasPorOrdenOrNumeroEnvio\"
+        />\r\n      <wsdl:input>\r\n        <http:urlEncoded />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadora\">\r\n
+        \     <http:operation location=\"/GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadora\"
+        />\r\n      <wsdl:input>\r\n        <http:urlEncoded />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetDatosDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n
+        \     <http:operation location=\"/GetDatosDeEtiquetasPorOrdenOrNumeroEnvio\"
+        />\r\n      <wsdl:input>\r\n        <http:urlEncoded />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvio\">\r\n
+        \     <http:operation location=\"/GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvio\"
+        />\r\n      <wsdl:input>\r\n        <http:urlEncoded />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadora\">\r\n
+        \     <http:operation location=\"/GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadora\"
+        />\r\n      <wsdl:input>\r\n        <http:urlEncoded />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetPdfDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n
+        \     <http:operation location=\"/GetPdfDeEtiquetasPorOrdenOrNumeroEnvio\"
+        />\r\n      <wsdl:input>\r\n        <http:urlEncoded />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n  </wsdl:binding>\r\n  <wsdl:binding name=\"Oep_TrackingHttpPost\"
+        type=\"tns:Oep_TrackingHttpPost\">\r\n    <http:binding verb=\"POST\" />\r\n
+        \   <wsdl:operation name=\"List_Envios\">\r\n      <http:operation location=\"/List_Envios\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"Tracking_Pieza\">\r\n      <http:operation location=\"/Tracking_Pieza\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"Tracking_OrdenRetiro\">\r\n      <http:operation location=\"/Tracking_OrdenRetiro\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"Tarifar_Envio_Corporativo\">\r\n      <http:operation location=\"/Tarifar_Envio_Corporativo\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"AnularOrdenGenerada\">\r\n      <http:operation location=\"/AnularOrdenGenerada\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GenerarConsolidacionDeOrdenesDeRetiro\">\r\n      <http:operation location=\"/GenerarConsolidacionDeOrdenesDeRetiro\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetEnviosUltimoEstado\">\r\n      <http:operation location=\"/GetEnviosUltimoEstado\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GenerateQrByOrdenDeRetiro\">\r\n      <http:operation location=\"/GenerateQrByOrdenDeRetiro\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GenerateQRParaPaquetes\">\r\n      <http:operation location=\"/GenerateQRParaPaquetes\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GenerateListQrPorEnvio\">\r\n      <http:operation location=\"/GenerateListQrPorEnvio\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"IngresoOR\">\r\n      <http:operation location=\"/IngresoOR\" />\r\n
+        \     <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetCentroCostoPorOperativa\">\r\n      <http:operation location=\"/GetCentroCostoPorOperativa\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetCentrosImposicion\">\r\n      <http:operation location=\"/GetCentrosImposicion\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetELockerOCA\">\r\n      <http:operation location=\"/GetELockerOCA\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetCentrosImposicionAdmision\">\r\n      <http:operation location=\"/GetCentrosImposicionAdmision\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetServiciosDeCentrosImposicion\">\r\n      <http:operation location=\"/GetServiciosDeCentrosImposicion\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:content
+        part=\"Body\" type=\"text/xml\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"TrackingEnvio_EstadoActual\">\r\n      <http:operation
+        location=\"/TrackingEnvio_EstadoActual\" />\r\n      <wsdl:input>\r\n        <mime:content
+        type=\"application/x-www-form-urlencoded\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <mime:content part=\"Body\" type=\"text/xml\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetProvincias\">\r\n      <http:operation
+        location=\"/GetProvincias\" />\r\n      <wsdl:input>\r\n        <mime:content
+        type=\"application/x-www-form-urlencoded\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <mime:content part=\"Body\" type=\"text/xml\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetLocalidadesByProvincia\">\r\n
+        \     <http:operation location=\"/GetLocalidadesByProvincia\" />\r\n      <wsdl:input>\r\n
+        \       <mime:content type=\"application/x-www-form-urlencoded\" />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:content part=\"Body\" type=\"text/xml\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetServiciosDeCentrosImposicion_xProvincia\">\r\n      <http:operation
+        location=\"/GetServiciosDeCentrosImposicion_xProvincia\" />\r\n      <wsdl:input>\r\n
+        \       <mime:content type=\"application/x-www-form-urlencoded\" />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:content part=\"Body\" type=\"text/xml\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetCentrosImposicionPorCP\">\r\n      <http:operation location=\"/GetCentrosImposicionPorCP\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetCentrosImposicionAdmisionPorCP\">\r\n      <http:operation location=\"/GetCentrosImposicionAdmisionPorCP\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n      <http:operation
+        location=\"/GetHtmlDeEtiquetasPorOrdenOrNumeroEnvio\" />\r\n      <wsdl:input>\r\n
+        \       <mime:content type=\"application/x-www-form-urlencoded\" />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadora\">\r\n
+        \     <http:operation location=\"/GetHtmlDeEtiquetasPorOrdenOrNumeroEnvioParaEtiquetadora\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetDatosDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n      <http:operation
+        location=\"/GetDatosDeEtiquetasPorOrdenOrNumeroEnvio\" />\r\n      <wsdl:input>\r\n
+        \       <mime:content type=\"application/x-www-form-urlencoded\" />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvio\">\r\n
+        \     <http:operation location=\"/GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvio\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadora\">\r\n
+        \     <http:operation location=\"/GetHtmlDeEtiquetasLockersPorOrdenOrNumeroEnvioParaEtiquetadora\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"GetPdfDeEtiquetasPorOrdenOrNumeroEnvio\">\r\n      <http:operation
+        location=\"/GetPdfDeEtiquetasPorOrdenOrNumeroEnvio\" />\r\n      <wsdl:input>\r\n
+        \       <mime:content type=\"application/x-www-form-urlencoded\" />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n  </wsdl:binding>\r\n  <wsdl:service name=\"Oep_Tracking\">\r\n
+        \   <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Servicios
+        Web Públicos de OCA Express Pak</wsdl:documentation>\r\n    <wsdl:port name=\"Oep_TrackingSoap\"
+        binding=\"tns:Oep_TrackingSoap\">\r\n      <soap:address location=\"http://webservice.oca.com.ar/oep_tracking/Oep_Track.asmx\"
+        />\r\n    </wsdl:port>\r\n    <wsdl:port name=\"Oep_TrackingSoap12\" binding=\"tns:Oep_TrackingSoap12\">\r\n
+        \     <soap12:address location=\"http://webservice.oca.com.ar/oep_tracking/Oep_Track.asmx\"
+        />\r\n    </wsdl:port>\r\n    <wsdl:port name=\"Oep_TrackingHttpGet\" binding=\"tns:Oep_TrackingHttpGet\">\r\n
+        \     <http:address location=\"http://webservice.oca.com.ar/oep_tracking/Oep_Track.asmx\"
+        />\r\n    </wsdl:port>\r\n    <wsdl:port name=\"Oep_TrackingHttpPost\" binding=\"tns:Oep_TrackingHttpPost\">\r\n
+        \     <http:address location=\"http://webservice.oca.com.ar/oep_tracking/Oep_Track.asmx\"
+        />\r\n    </wsdl:port>\r\n  </wsdl:service>\r\n</wsdl:definitions>"
+    http_version: 
+  recorded_at: Tue, 01 Mar 2016 15:53:44 GMT
+- request:
+    method: post
+    uri: http://webservice.oca.com.ar/oep_tracking/Oep_Track.asmx
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="#Oca_Express_Pak"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ins0="#Oca_Express_Pak/AbstractTypes"><env:Body><tns:GetPdfDeEtiquetasPorOrdenOrNumeroEnvio><tns:idOrdenRetiro>1000</tns:idOrdenRetiro><tns:nroEnvio
+        xsi:nil="true"/></tns:GetPdfDeEtiquetasPorOrdenOrNumeroEnvio></env:Body></env:Envelope>
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.5.0, ruby 2.1.6 (2015-04-13))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 01 Mar 2016 15:53:44 GMT
+      Soapaction:
+      - '"#Oca_Express_Pak/GetPdfDeEtiquetasPorOrdenOrNumeroEnvio"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '476'
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      Date:
+      - Tue, 01 Mar 2016 15:51:31 GMT
+      Server:
+      - Microsoft-IIS/6.0
+      X-Powered-By:
+      - ASP.NET
+      X-Aspnet-Version:
+      - 2.0.50727
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/xml; charset=utf-8
+      Content-Length:
+      - '414'
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><soap:Fault><faultcode>soap:Server</faultcode><faultstring>Server
+        was unable to process request. ---&gt; The document has no pages.</faultstring><detail
+        /></soap:Fault></soap:Body></soap:Envelope>
+    http_version: 
+  recorded_at: Tue, 01 Mar 2016 15:53:44 GMT
+recorded_with: VCR 3.0.0
