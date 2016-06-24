@@ -8,7 +8,8 @@ module Oca
 
       def initialize(username, password)
         super
-        @client = Savon.client(wsdl: WSDL_URL)
+        @opts = { wsdl: WSDL_URL }.merge(Oca::Logger.options)
+        @client = Savon.client(@opts)
       end
 
       # Checks if the user has input valid credentials

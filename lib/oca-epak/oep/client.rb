@@ -5,7 +5,8 @@ module Oca
 
       def initialize(username, password)
         super
-        @client = Savon.client(wsdl: WSDL_URL)
+        @opts = { wsdl: WSDL_URL }.merge(Oca::Logger.options)
+        @client = Savon.client(@opts)
       end
 
       # Returns the HTML for a label

@@ -63,7 +63,8 @@ RSpec.describe Oca::Epak::Client do
     let(:declared_value) { "100" }
 
     it "returns the shipping price and estimated days until delivery" do
-      opts = { total_weight: weight, total_volume: volume, origin_zip_code: origin_zip_code,
+      opts = { total_weight: weight, total_volume: volume,
+        origin_zip_code: origin_zip_code,
         destination_zip_code: destination_zip_code,
         declared_value: declared_value, package_quantity: package_quantity,
         cuit: cuit, operation_code: operation_code }
@@ -79,10 +80,8 @@ RSpec.describe Oca::Epak::Client do
   end
 
   describe "#create_pickup_order" do
-    let(:pickup_data_path) { "../../../../fixtures/pickup_data_sample.xml" }
-    let(:pickup_xml) do
-      File.open(File.expand_path(pickup_data_path, __FILE__)).read
-    end
+    let(:pickup_data_path) { "spec/support/pickup_data_sample.xml" }
+    let(:pickup_xml) { File.open(pickup_data_path).read }
     let(:pickup_data) { spy(Oca::Epak::PickupData.new) }
 
     before { allow(pickup_data).to receive(:to_xml).and_return(pickup_xml) }
