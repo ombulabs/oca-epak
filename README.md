@@ -152,6 +152,18 @@ response[:diffgram]
 `#create_pickup_order` has a few extra options you can check by browsing the
 [method's documentation](http://www.rubydoc.info/github/ombulabs/oca-epak/master/Oca%2FEpak%2FClient%3Acreate_pickup_order).
 
+## Logging
+
+Logging of API calls via the Savon client is disabled by default. To enable it,
+you need to set the logger options:
+
+```
+Oca::Logger.options = { log: true }
+```
+
+You can also provide a log level by using `{ log: true, log_level: :fatal }`.
+The default log level is `:info`.
+
 ## Contributing & Development
 
 1. Fork it
