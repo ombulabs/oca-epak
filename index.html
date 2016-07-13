@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>OCA e-Pak Ruby Gem by ombulabs</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>OCA e-Pak Ruby Gem</h1>
+        <p>Ruby Wrapper for the OCA e-Pak API</p>
+
+        <p class="view"><a href="https://github.com/ombulabs/oca-epak">View the Project on GitHub <small>ombulabs/oca-epak</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/ombulabs/oca-epak/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/ombulabs/oca-epak/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/ombulabs/oca-epak">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="oca-e-pak" class="anchor" href="#oca-e-pak" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>OCA e-Pak</h1>
+
+<p>A Ruby Wrapper for the OCA e-Pak API</p>
+
+<p><a href="http://badge.fury.io/rb/oca-epak"><img src="https://badge.fury.io/rb/oca-epak.svg" alt="Gem Version"></a>
+<a href="https://travis-ci.org/ombulabs/oca-epak"><img src="https://travis-ci.org/ombulabs/oca-epak.svg?branch=master" alt="Build Status"></a>
+<a href="https://codeclimate.com/github/ombulabs/oca-epak"><img src="https://codeclimate.com/github/ombulabs/oca-epak/badges/gpa.svg" alt="Code Climate"></a></p>
+
+<h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<p>For command line usage:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ gem install oca-epak</pre></div>
+
+<p>If you intend to use it within an application, add <code>gem "oca-epak"</code> to your
+<code>Gemfile</code>.</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>There are two OCA clients available, one for each endpoint. <code>Oca::Epak::Client</code>
+provides most of OCA's Epak offerings. The other one, which uses an older
+endpoint, <code>Oca::Oep::Client</code>, provides only a few methods which aren't yet
+available under the new endpoint.</p>
+
+<p>You will most likely want to use <code>Oca::Epak::Client</code> most of the time. To
+initialize a client:</p>
+
+<div class="highlight highlight-source-ruby"><pre>epak_client <span class="pl-k">=</span> <span class="pl-c1">Oca</span>::<span class="pl-c1">Epak</span>::<span class="pl-c1">Client</span>.<span class="pl-k">new</span>(<span class="pl-s"><span class="pl-pds">"</span>your-email@example.com<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>your-password<span class="pl-pds">"</span></span>)</pre></div>
+
+<p>To check whether your credentials are valid or not, run <code>#check_credentials</code></p>
+
+<div class="highlight highlight-source-ruby"><pre>epak_client.check_credentials
+=&gt; <span class="pl-c1">true</span></pre></div>
+
+<p>To see your available operation codes, you can use <code>#get_operation_codes</code></p>
+
+<div class="highlight highlight-source-ruby"><pre>operation_codes <span class="pl-k">=</span> epak_client.get_operation_codes
+=&gt; [{ <span class="pl-c1">:id_operativa</span>=&gt;<span class="pl-s"><span class="pl-pds">"</span>77790<span class="pl-pds">"</span></span>,
+      <span class="pl-c1">:descripcion</span>=&gt;<span class="pl-s"><span class="pl-pds">"</span>77790 - ENVIOS DE PUERTA A PUERTA<span class="pl-pds">"</span></span>,
+      <span class="pl-c1">:con_volumen</span>=&gt;<span class="pl-c1">false</span>,
+      <span class="pl-c1">:con_valor_declarado</span>=&gt;<span class="pl-c1">false</span>,
+      <span class="pl-c1">:a_sucursal</span>=&gt;<span class="pl-c1">false</span>,
+      <span class="pl-c1">:"@diffgr:id"</span>=&gt;<span class="pl-s"><span class="pl-pds">"</span>Table1<span class="pl-pds">"</span></span>,
+      <span class="pl-c1">:"@msdata:row_order"</span>=&gt;<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> }]</pre></div>
+
+<p>NOTE: Keep in mind that you cannot register/create an operation code via OCA's
+API, you have to get in touch with someone from OCA and they take care of the
+registration.</p>
+
+<p>After you have your operation code active for a given delivery type, you can
+begin calculating shipping rates and delivery estimates:</p>
+
+<div class="highlight highlight-source-ruby"><pre>opts <span class="pl-k">=</span> { <span class="pl-c1">total_weight:</span> <span class="pl-s"><span class="pl-pds">"</span>50<span class="pl-pds">"</span></span>, <span class="pl-c1">total_volume:</span> <span class="pl-s"><span class="pl-pds">"</span>0.027<span class="pl-pds">"</span></span>, <span class="pl-c1">origin_zip_code:</span> <span class="pl-s"><span class="pl-pds">"</span>1646<span class="pl-pds">"</span></span>,
+         <span class="pl-c1">destination_zip_code:</span> <span class="pl-s"><span class="pl-pds">"</span>2000<span class="pl-pds">"</span></span>, <span class="pl-c1">declared_value:</span> <span class="pl-s"><span class="pl-pds">"</span>100<span class="pl-pds">"</span></span>,
+         <span class="pl-c1">package_quantity:</span> <span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>, <span class="pl-c1">cuit:</span> <span class="pl-s"><span class="pl-pds">"</span>30-99999999-7<span class="pl-pds">"</span></span>, <span class="pl-c1">operation_code:</span> <span class="pl-s"><span class="pl-pds">"</span>77790<span class="pl-pds">"</span></span> }
+
+epak_client.get_shipping_rate(opts)
+=&gt; {<span class="pl-c1">:tarifador</span>=&gt;<span class="pl-s"><span class="pl-pds">"</span>15<span class="pl-pds">"</span></span>,
+    <span class="pl-c1">:precio</span>=&gt;<span class="pl-s"><span class="pl-pds">"</span>328.9000<span class="pl-pds">"</span></span>,
+    <span class="pl-c1">:id_tiposervicio</span>=&gt;<span class="pl-s"><span class="pl-pds">"</span>2<span class="pl-pds">"</span></span>,
+    <span class="pl-c1">:ambito</span>=&gt;<span class="pl-s"><span class="pl-pds">"</span>Regional<span class="pl-pds">"</span></span>,
+    <span class="pl-c1">:plazo_entrega</span>=&gt;<span class="pl-s"><span class="pl-pds">"</span>3<span class="pl-pds">"</span></span>,
+    <span class="pl-c1">:adicional</span>=&gt;<span class="pl-s"><span class="pl-pds">"</span>0.0000<span class="pl-pds">"</span></span>,
+    <span class="pl-c1">:total</span>=&gt;<span class="pl-s"><span class="pl-pds">"</span>328.9000<span class="pl-pds">"</span></span>,
+    <span class="pl-c1">:xml</span>=&gt;<span class="pl-s"><span class="pl-pds">"</span>&lt;row Tarifador=<span class="pl-cce">\"</span>15<span class="pl-cce">\"</span> Precio=<span class="pl-cce">\"</span>328.9000<span class="pl-cce">\"</span>/&gt;<span class="pl-pds">"</span></span>,
+    <span class="pl-c1">:"@diffgr:id"</span>=&gt;<span class="pl-s"><span class="pl-pds">"</span>Table1<span class="pl-pds">"</span></span>,
+    <span class="pl-c1">:"@msdata:row_order"</span>=&gt;<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span>}</pre></div>
+
+<p>To create a pickup order, in order to let OCA know that they should pick up an
+order for delivery, you can use <code>#create_pickup_order</code>.</p>
+
+<p>You will first need to create an <code>Oca::Epak::PickupData</code> object.
+The pickup hash contains information about the sender of the package, where OCA
+should pick it up. The shipments hash contains information about who will
+receive the package, where it should be sent:</p>
+
+<div class="highlight highlight-source-ruby"><pre>opts <span class="pl-k">=</span> {
+  <span class="pl-c1">account_number:</span> <span class="pl-s"><span class="pl-pds">"</span>your-account-number-aka-sap<span class="pl-pds">"</span></span>,
+  <span class="pl-c1">pickup:</span> { <span class="pl-s"><span class="pl-pds">"</span>calle<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>street-name<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>numero<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>street-number<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>piso<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>departamento<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>cp<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>zipcode<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>localidad<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>city<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>provincia<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>province<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>solicitante<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>your-name<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>email<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>your-email<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>observaciones<span class="pl-pds">"</span></span>=&gt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span> },
+  <span class="pl-c1">shipments:</span> [
+    {
+      <span class="pl-s"><span class="pl-pds">"</span>id_operativa<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>operation-code<span class="pl-pds">"</span></span>,
+      <span class="pl-s"><span class="pl-pds">"</span>numero_remito<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>your-internal-order-number<span class="pl-pds">"</span></span>,
+      <span class="pl-s"><span class="pl-pds">"</span>destinatario<span class="pl-pds">"</span></span> =&gt; {
+        <span class="pl-s"><span class="pl-pds">"</span>apellido<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>last-name<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>nombre<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>first-name<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>calle<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>street-name<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>numero<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>street-number<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>piso<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>departamento<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>cp<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>zipcode<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>localidad<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>city<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>provincia<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>provice<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>telefono<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>phone<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>email<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>email<span class="pl-pds">"</span></span>
+      },
+      <span class="pl-s"><span class="pl-pds">"</span>paquetes<span class="pl-pds">"</span></span>=&gt; [
+        {
+          <span class="pl-s"><span class="pl-pds">"</span>alto<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>package-height-in-m<span class="pl-pds">"</span></span>,
+          <span class="pl-s"><span class="pl-pds">"</span>ancho<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>package-width-in-m<span class="pl-pds">"</span></span>,
+          <span class="pl-s"><span class="pl-pds">"</span>largo<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>package-depth-in-m<span class="pl-pds">"</span></span>,
+          <span class="pl-s"><span class="pl-pds">"</span>peso<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>package-weight-in-kg<span class="pl-pds">"</span></span>,
+          <span class="pl-s"><span class="pl-pds">"</span>valor_declarado<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>package-monetary-value<span class="pl-pds">"</span></span>,
+          <span class="pl-s"><span class="pl-pds">"</span>cantidad<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>quantity-of-packages<span class="pl-pds">"</span></span>
+        }
+      ]
+    }
+  ]
+}
+
+pickup_data <span class="pl-k">=</span> <span class="pl-c1">Oca</span>::<span class="pl-c1">Epak</span>::<span class="pl-c1">PickupData</span>.<span class="pl-k">new</span>(opts)</pre></div>
+
+<p>After you create the <code>PickupData</code> object, you can submit the shipment:</p>
+
+<div class="highlight highlight-source-ruby"><pre>response <span class="pl-k">=</span> epak_client.create_pickup_order(pickup_data)
+response[<span class="pl-c1">:diffgram</span>]
+=&gt; {<span class="pl-c1">:resultado</span>=&gt;
+    {<span class="pl-c1">:resumen</span>=&gt;
+      {<span class="pl-c1">:codigo_operacion</span>=&gt;<span class="pl-s"><span class="pl-pds">"</span>13150502<span class="pl-pds">"</span></span>,
+       <span class="pl-c1">:fecha_ingreso</span>=&gt;<span class="pl-c">#&lt;DateTime: 2015-11-17T11:43:50-03:00 ((2457344j,53030s,607000000n),-10800s,2299161j)&gt;,</span>
+       <span class="pl-c1">:mail_usuario</span>=&gt;<span class="pl-s"><span class="pl-pds">"</span>hola@ombushop.com<span class="pl-pds">"</span></span>,
+       <span class="pl-c1">:cantidad_registros</span>=&gt;<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>,
+       <span class="pl-c1">:cantidad_ingresados</span>=&gt;<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>,
+       <span class="pl-c1">:cantidad_rechazados</span>=&gt;<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span>,
+       <span class="pl-c1">:"@diffgr:id"</span>=&gt;<span class="pl-s"><span class="pl-pds">"</span>Resumen1<span class="pl-pds">"</span></span>,
+       <span class="pl-c1">:"@msdata:row_order"</span>=&gt;<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span>}
+     }
+   }</pre></div>
+
+<p><code>#create_pickup_order</code> has a few extra options you can check by browsing the
+<a href="http://www.rubydoc.info/github/ombulabs/oca-epak/master/Oca%2FEpak%2FClient%3Acreate_pickup_order">method's documentation</a>.</p>
+
+<h2>
+<a id="contributing--development" class="anchor" href="#contributing--development" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing &amp; Development</h2>
+
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Write your feature (and tests)</li>
+<li>Run tests (<code>bundle exec rake</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Added some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol>
+
+<h2>
+<a id="release-the-gem" class="anchor" href="#release-the-gem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Release the Gem</h2>
+
+<div class="highlight highlight-source-shell"><pre>$ bundle <span class="pl-c1">exec</span> rake release</pre></div>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>The gem is available as open source under the terms of the <a href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/ombulabs">ombulabs</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
