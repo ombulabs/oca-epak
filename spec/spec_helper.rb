@@ -3,7 +3,7 @@ require 'pry'
 require_relative '../lib/oca-epak'
 
 VCR.configure do |config|
-  config.cassette_library_dir = "fixtures/vcr_cassettes"
+  config.cassette_library_dir = "spec/support/vcr_cassettes"
   config.hook_into :webmock
   config.before_record do |record|
     record.response.body.force_encoding('UTF-8')

@@ -32,10 +32,8 @@ RSpec.describe Oca::Epak::PickupData do
   subject { Oca::Epak::PickupData.new(opts) }
 
   describe "#to_xml" do
-    let(:pickup_data_path) { "../../../fixtures/pickup_data_sample.xml" }
-    let(:expected_result) do
-      File.open(File.expand_path(pickup_data_path, __FILE__)).read
-    end
+    let(:pickup_data_path) { "spec/support/pickup_data_sample.xml" }
+    let(:expected_result) { File.open(pickup_data_path).read }
 
     it "generates the XML according to the documentation" do
       expect(subject.to_xml).to eql(expected_result)
