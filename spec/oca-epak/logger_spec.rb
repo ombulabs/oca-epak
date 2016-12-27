@@ -3,7 +3,8 @@ RSpec.describe Oca::Logger do
   let(:default_options) do
     { log: false, pretty_print_xml: false, log_level: :info }
   end
-  let(:custom_options) { { log: true, log_level: :debug } }
+  let(:custom_options) { { log: true, log_level: :debug, logger: custom_logger } }
+  let(:custom_logger) { double(:logger) }
 
   after { Oca::Logger.options = default_options }
 
