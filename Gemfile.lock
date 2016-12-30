@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    oca-epak (1.5.0)
+    oca-epak (1.6.0)
+      rack (~> 1.6)
       savon (~> 2.11)
 
 GEM
@@ -94,4 +95,4 @@ DEPENDENCIES
   webmock (~> 1.21)
 
 BUNDLED WITH
-   1.11.2
+   1.13.7

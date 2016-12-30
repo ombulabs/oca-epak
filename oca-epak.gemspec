@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.license     = "MIT"
 
   s.add_dependency("savon", "~> 2.11")
+  s.add_dependency("rack", "~> 1.6")
   s.add_development_dependency("rspec", "~> 3.3")
   s.add_development_dependency("vcr", "~> 2.9")
   s.add_development_dependency("webmock", "~> 1.21")
