@@ -1,25 +1,22 @@
 module Oca
   class Logger
-    attr_accessor :log, :pretty_print_xml, :log_level
+    attr_reader :logger_options
 
-    # Receives a hash with keys `log`, `pretty_print_xml` and `log_level`.
+    # Receives a hash with keys `log`, `pretty_print_xml`, `log_level` and
+    # `logger`.
     # `log_level` can be :info, :debug, :warn, :error or :fatal
     #
     # @param opts [Hash]
     # @option opts [Boolean] :log
     # @option opts [Boolean] :pretty_print_xml
     # @option opts [Symbol] :log_level
+    # @option opts [Logger] :logger
     def initialize(opts = {})
-      @log = opts[:log] || false
-      @pretty_print_xml = opts[:pretty_print_xml] || false
-      @log_level = opts[:log_level] || :info
-    end
-
-    # Returns a hash with the logging options for Savon.
-    #
-    # @return [Hash]
-    def logger_options
-      { log: log, pretty_print_xml: pretty_print_xml, log_level: log_level }
+      @logger_options = {}
+      @logger_options[:log] = opts[:log] || false
+      @logger_options[:pretty_print_xml] = opts[:pretty_print_xml] || false
+      @logger_options[:log_level] = opts[:log_level] || :info
+      @logger_options[:logger] = opts[:logger] if opts[:logger]
     end
 
     def self.options=(opts = {})

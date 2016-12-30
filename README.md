@@ -157,12 +157,30 @@ response[:diffgram]
 Logging of API calls via the Savon client is disabled by default. To enable it,
 you need to set the logger options:
 
-```
+```ruby
 Oca::Logger.options = { log: true }
 ```
 
-You can also provide a log level by using `{ log: true, log_level: :fatal }`.
-The default log level is `:info`.
+The default options are:
+
+```ruby
+{
+  log: false,
+  pretty_print_xml: false,
+  log_level: :info
+}
+```
+
+You can set a different logger too:
+
+```ruby
+Oca::Logger.options = {
+  log: true,
+  pretty_print_xml: true,
+  log_level: :debug,
+  logger: Rails.logger
+}
+```
 
 ## Contributing & Development
 
