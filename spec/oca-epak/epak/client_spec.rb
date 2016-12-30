@@ -93,4 +93,52 @@ RSpec.describe Oca::Epak::Client do
       end
     end
   end
+
+  describe "#taxation_centers_with_services" do
+    let(:first_center) do
+      {
+        :id_centro_imposicion=>"2",
+        :sigla=>"ADG",
+        :sucursal=>"LUIS GUILLON                  ",
+        :calle=>"BOULEVARD BS. AS.             ",
+        :numero=>"1459 ",
+        :torre=>nil,
+        :piso=>nil,
+        :depto=>nil,
+        :localidad=>"LUIS GUILLON             ",
+        :codigo_postal=>"1838    ",
+        :provincia=>"BUENOS AIRES                  ",
+        :telefono=>"4367-5729      ",
+        :latitud=>"-34.80982941",
+        :longitud=>"-58.44765759",
+        :tipo_agencia=>"Sucursal OCA",
+        :horario_atencion=>"Lun a Vie 8:30 a 18 hs. ",
+        :sucursal_oca=>"ADG",
+        :servicios => {
+          :servicio=>[
+            {
+              :id_tipo_servicio=>"1",
+              :servicio_desc=>"Admisión de paquetes"
+            },
+            {
+              :id_tipo_servicio=>"2",
+              :servicio_desc=>"Entrega de paquetes"
+            },
+            {
+              :id_tipo_servicio=>"3",
+              :servicio_desc=>"Venta Estampillas"
+            }
+          ]
+        }
+      }
+    end
+
+    it "returns the list of taxation centers with services" do
+      VCR.use_cassette("taxation_centers_with_services") do
+        response = subject.taxation_centers_with_services
+        expect(response).to be_a Hash
+        expect(response[:centros_de_imposicion][:centro].first).to eq first_center
+      end
+    end
+  end
 end

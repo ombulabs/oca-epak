@@ -83,6 +83,15 @@ module Oca
         parse_results_table(response, method)
       end
 
+      # Returns all existing Taxation Centers with services
+      #
+      # @return [Array, nil] Information for all the Oca Taxation Centers with services
+      def taxation_centers_with_services
+        method = :get_centros_imposicion_con_servicios
+        response = client.call(method)
+        parse_result(response, method)
+      end
+
       # Returns all operation codes
       #
       # @return [Array, nil] Returns all operation codes available for the user
