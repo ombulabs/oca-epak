@@ -141,4 +141,16 @@ RSpec.describe Oca::Epak::Client do
       end
     end
   end
+
+  describe "#tracking_object" do
+    it "returns the history of the object" do
+      expected_response = "[{\"numero_envio\":\"1217400000000082171\",\"descripcion_motivo\":\"Sin Motivo\",\"desdcripcion_estado\":\"En proceso de Admision - Suc: ZAPALA\",\"suc\":\"Suc: ZAPALA\",\"fecha\":\"2016-12-13T00:00:00-03:00\",\"@diffgr:id\":\"Table1\",\"@msdata:row_order\":\"0\"},{\"numero_envio\":\"1217400000000082171\",\"descripcion_motivo\":\"Sin Motivo\",\"desdcripcion_estado\":\"En Espera de Retiro por Sucursal - Suc: PLANTA VELEZ SARSFIELD\",\"suc\":\"Suc: PLANTA VELEZ SARSFIELD\",\"fecha\":\"2017-01-13T00:00:00-03:00\",\"@diffgr:id\":\"Table2\",\"@msdata:row_order\":\"1\"},{\"numero_envio\":\"1217400000000082171\",\"descripcion_motivo\":\"Sin Motivo\",\"desdcripcion_estado\":\"Entregado - Suc: PLANTA VELEZ SARSFIELD\",\"suc\":\"Suc: PLANTA VELEZ SARSFIELD\",\"fecha\":\"2017-01-13T00:00:00-03:00\",\"@diffgr:id\":\"Table3\",\"@msdata:row_order\":\"2\"}]"
+
+      VCR.use_cassette("tracking_object") do
+        response = subject.tracking_object(pieza: "1217400000000082171")
+        expect(response).to be_a Hash
+        expect(response[:diffgram][:new_data_set][:table].to_json).to eq expected_response
+      end
+    end
+  end
 end
