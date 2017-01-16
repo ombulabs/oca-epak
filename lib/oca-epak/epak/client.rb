@@ -126,6 +126,22 @@ module Oca
           body[:get_provincias_result][:provincias][:provincia]
         end
       end
+
+      # Get the tracking history of an object
+      #
+      # @param [Hash] opts
+      # @option opts [String] :cuit Client's CUIT e.g: 30-99999999-7
+      # @option opts [String] :pieza Tracking number
+      # @return [Hash, nil] Contains the history of object's movement.
+      def tracking_object(opts = {})
+        message = {
+          "Cuit" => opts[:cuit],
+          "Pieza" => opts[:pieza]
+        }
+
+        response = client.call(:tracking_pieza, message: message)
+        parse_result(response, :tracking_pieza)
+      end
     end
   end
 end
