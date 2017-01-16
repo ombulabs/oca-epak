@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    oca-epak (1.7.0)
+    oca-epak (1.7.1)
       rack (~> 1.6)
       savon (~> 2.11)
 
