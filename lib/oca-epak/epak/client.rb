@@ -142,6 +142,20 @@ module Oca
         response = client.call(:tracking_pieza, message: message)
         parse_result(response, :tracking_pieza)
       end
+
+      # Get the tracking history of an object with the ids
+      #
+      # @param [Hash] opts
+      # @option opts [String] :pieza Tracking number
+      # @return [Hash, nil] Contains the history of object's movement.
+      def tracking_object_with_ids(opts = {})
+        message = {
+          "NumeroEnvio" => opts[:pieza]
+        }
+
+        response = client.call(:tracking_pieza_con_id_estado, message: message)
+        parse_result(response, :tracking_pieza_con_id_estado)
+      end
     end
   end
 end
