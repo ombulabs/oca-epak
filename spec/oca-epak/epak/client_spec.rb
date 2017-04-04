@@ -142,6 +142,54 @@ RSpec.describe Oca::Epak::Client do
     end
   end
 
+  describe "#taxation_centers_with_services_by_zipcode" do
+    let(:first_center) do
+      {
+        :id_centro_imposicion=>"2",
+        :sigla=>"ADG",
+        :sucursal=>"LUIS GUILLON                  ",
+        :calle=>"BOULEVARD BS. AS.             ",
+        :numero=>"1459 ",
+        :torre=>nil,
+        :piso=>nil,
+        :depto=>nil,
+        :localidad=>"LUIS GUILLON             ",
+        :codigo_postal=>"1838    ",
+        :provincia=>"BUENOS AIRES                  ",
+        :telefono=>"4367-5729      ",
+        :latitud=>"-34.80982941",
+        :longitud=>"-58.44765759",
+        :tipo_agencia=>"Sucursal OCA",
+        :horario_atencion=>"Lun a Vie 8:30 a 18 hs. ",
+        :sucursal_oca=>"ADG",
+        :servicios => {
+          :servicio=>[
+            {
+              :id_tipo_servicio=>"1",
+              :servicio_desc=>"Admisión de paquetes"
+            },
+            {
+              :id_tipo_servicio=>"2",
+              :servicio_desc=>"Entrega de paquetes"
+            },
+            {
+              :id_tipo_servicio=>"3",
+              :servicio_desc=>"Venta Estampillas"
+            }
+          ]
+        }
+      }
+    end
+
+    it "returns the list of taxation centers with services by zipcode" do
+      VCR.use_cassette("taxation_centers_with_services_by_zipcode") do
+        response = subject.taxation_centers_with_services_by_zipcode(codigo_postal: "1838")
+        expect(response).to be_a Hash
+        expect(response[:centros_de_imposicion][:centro].first).to eq first_center
+      end
+    end
+  end
+
   describe "#tracking_object" do
     it "returns the history of the object" do
       expected_response = "[{\"numero_envio\":\"1217400000000082171\",\"descripcion_motivo\":\"Sin Motivo\",\"desdcripcion_estado\":\"En proceso de Admision - Suc: ZAPALA\",\"suc\":\"Suc: ZAPALA\",\"fecha\":\"2016-12-13T00:00:00-03:00\",\"@diffgr:id\":\"Table1\",\"@msdata:row_order\":\"0\"},{\"numero_envio\":\"1217400000000082171\",\"descripcion_motivo\":\"Sin Motivo\",\"desdcripcion_estado\":\"En Espera de Retiro por Sucursal - Suc: PLANTA VELEZ SARSFIELD\",\"suc\":\"Suc: PLANTA VELEZ SARSFIELD\",\"fecha\":\"2017-01-13T00:00:00-03:00\",\"@diffgr:id\":\"Table2\",\"@msdata:row_order\":\"1\"},{\"numero_envio\":\"1217400000000082171\",\"descripcion_motivo\":\"Sin Motivo\",\"desdcripcion_estado\":\"Entregado - Suc: PLANTA VELEZ SARSFIELD\",\"suc\":\"Suc: PLANTA VELEZ SARSFIELD\",\"fecha\":\"2017-01-13T00:00:00-03:00\",\"@diffgr:id\":\"Table3\",\"@msdata:row_order\":\"2\"}]"

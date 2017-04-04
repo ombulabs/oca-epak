@@ -156,6 +156,20 @@ module Oca
         response = client.call(:tracking_pieza_con_id_estado, message: message)
         parse_result(response, :tracking_pieza_con_id_estado)
       end
+
+      # Returns all existing Taxation Centers with services
+      #
+      # @param [Hash] opts
+      # @option opts [String] :codigo_postal ZipCode
+      # @return [Array, nil] Information for all the Oca Taxation Centers with services
+      def taxation_centers_with_services_by_zipcode(opts = {})
+        message = {
+          "CodigoPostal" => opts[:codigo_postal]
+        }
+        method = :get_centros_imposicion_con_servicios_by_cp
+        response = client.call(method, message: message)
+        parse_result(response, method)
+      end      
     end
   end
 end
