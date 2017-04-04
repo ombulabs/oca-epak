@@ -166,7 +166,7 @@ module Oca
         message = {
           "CodigoPostal" => opts[:codigo_postal]
         }
-        method = :get_centros_imposicion_con_servicios
+        method = :get_centros_imposicion_con_servicios_by_cp
         response = client.call(method, message: message)
         parse_result(response, method)
       end      
