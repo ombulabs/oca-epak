@@ -201,22 +201,24 @@ RSpec.describe Oca::Epak::Client do
       end
     end
 
-    it "normalizes the CUIT when the number has not mask" do
-    	unmasked_cuit = cuit.gsub('-', '')
+    context "when the CUIT number is not in the right format" do
+      it "normalizes the number" do
+      	unmasked_cuit = cuit.gsub('-', '')
 
-    	message = {
-    		message: {
-	    		"Cuit" => cuit,
-	        "Pieza" => "1217400000000082171"
-        }
-    	}
+      	message = {
+      		message: {
+  	    		"Cuit" => cuit,
+  	        "Pieza" => "1217400000000082171"
+          }
+      	}
 
-      fake_response = double("Savon::Response", body: { foo: "bar" })
+        fake_response = double("Savon::Response", body: { foo: "bar" })
 
-      VCR.use_cassette("tracking_object") do
-        allow(subject.client).to receive(:call).and_return(fake_response)
-        subject.tracking_object(pieza: "1217400000000082171", cuit: unmasked_cuit)
-        expect(subject.client).to have_received(:call).with(:tracking_pieza, message)
+        VCR.use_cassette("tracking_object") do
+          allow(subject.client).to receive(:call).and_return(fake_response)
+          subject.tracking_object(pieza: "1217400000000082171", cuit: unmasked_cuit)
+          expect(subject.client).to have_received(:call).with(:tracking_pieza, message)
+        end
       end
     end
   end

@@ -5,6 +5,7 @@ module Oca
       USER_STRING = "usr".freeze
       PASSWORD_STRING = "psw".freeze
       WSDL_URL = "#{BASE_WSDL_URL}/epak_tracking/Oep_TrackEPak.asmx?wsdl".freeze
+      CUIT_PATTERN = /[0-9]{2}-[0-9]{8}-[0-9]/
 
       def initialize(username, password)
         super
@@ -178,15 +179,11 @@ module Oca
 
       private
       def normalize_cuit(cuit)
-        pattern = /[0-9]{2}-[0-9]{8}-[0-9]/
-
-        cuit_number = if (cuit =~ pattern).nil?
+        if (cuit =~ CUIT_PATTERN).nil?
           "%s-%s-%s" %[cuit[0..1], cuit[2..9], cuit[10]]
         else
           cuit
         end
-
-        return cuit_number
       end
     end
   end
