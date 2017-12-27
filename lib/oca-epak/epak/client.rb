@@ -5,6 +5,7 @@ module Oca
       USER_STRING = "usr".freeze
       PASSWORD_STRING = "psw".freeze
       WSDL_URL = "#{BASE_WSDL_URL}/epak_tracking/Oep_TrackEPak.asmx?wsdl".freeze
+      CUIT_PATTERN = /[0-9]{2}-[0-9]{8}-[0-9]/
 
       def initialize(username, password)
         super
@@ -61,6 +62,8 @@ module Oca
       # @option opts [String] :operation_code Operation Type
       # @return [Hash, nil] Contains Total Price, Delivery Estimate
       def get_shipping_rate(opts = {})
+        cuit_number = normalize_cuit(opts[:cuit])
+
         method = :tarifar_envio_corporativo
         message = { "PesoTotal" => opts[:total_weight],
                     "VolumenTotal" => opts[:total_volume],
@@ -68,7 +71,7 @@ module Oca
                     "CodigoPostalDestino" => opts[:destination_zip_code],
                     "ValorDeclarado" => opts[:declared_value],
                     "CantidadPaquetes" => opts[:package_quantity],
-                    "Cuit" => opts[:cuit],
+                    "Cuit" => cuit_number,
                     "Operativa" => opts[:operation_code] }
         response = client.call(method, message: message)
         parse_results_table(response, method).first
@@ -110,8 +113,10 @@ module Oca
       # @param [String] "To date" in DD-MM-YYYY format
       # @return [Array, nil] Contains an array of hashes with NroProducto and NumeroEnvio
       def list_shipments(cuit, from_date, to_date)
+        cuit_number = normalize_cuit(cuit)
+
         method = :list_envios
-        opts = { "CUIT" => cuit, "FechaDesde" => from_date,
+        opts = { "CUIT" => cuit_number, "FechaDesde" => from_date,
                  "FechaHasta" => to_date }
         response = client.call(method, message: opts)
         parse_results_table(response, method)
@@ -135,11 +140,12 @@ module Oca
       # @return [Hash, nil] Contains the history of object's movement.
       def tracking_object(opts = {})
         message = {
-          "Cuit" => opts[:cuit],
+          "Cuit" => normalize_cuit(opts[:cuit]),
           "Pieza" => opts[:pieza]
         }
 
         response = client.call(:tracking_pieza, message: message)
+
         parse_result(response, :tracking_pieza)
       end
 
@@ -169,7 +175,16 @@ module Oca
         method = :get_centros_imposicion_con_servicios_by_cp
         response = client.call(method, message: message)
         parse_result(response, method)
-      end      
+      end
+
+      private
+      def normalize_cuit(cuit)
+        if (cuit =~ CUIT_PATTERN).nil?
+          "%s-%s-%s" %[cuit[0..1], cuit[2..9], cuit[10]]
+        else
+          cuit
+        end
+      end
     end
   end
 end
