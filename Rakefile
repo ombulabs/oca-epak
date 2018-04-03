@@ -16,7 +16,7 @@ task release: :build do
   sh "git push origin master"
   sh "gem push oca-epak-#{Oca::Epak::VERSION}.gem"
   sh("git tag v#{Oca::Epak::VERSION}") rescue nil
-  sh("git push --tags")
+  sh "git push --tags"
 end
 
 task :console do
